@@ -1,7 +1,12 @@
-import React from "react";
+import Layout from "./pages/Layout/Layout";
+import classes from "./App.module.scss";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className={classes["app"]}>
+      <Layout />
+    </div>
+  );
 }
 
 export default App;
