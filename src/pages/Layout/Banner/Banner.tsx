@@ -1,15 +1,26 @@
 import classes from "./Banner.module.scss";
 
-const Banner = () => {
+interface BannerProps {
+  closeClickHandler: (key: boolean) => any;
+}
+
+const Banner = ({ closeClickHandler }: BannerProps) => {
+  const crossIconClickHandler = () => {
+    closeClickHandler?.(false);
+  };
+
   return (
     <div className={classes["banner-container"]}>
-      <div className={classes["banner-container"]}>
-        <p className={classes["banner-text"]}></p>
-        <div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+      <p className={classes["banner-text"]}>
+        Sign up and{" "}
+        <span className={classes["discount-text"]}>get 30% off</span> on your
+        first order. <span className={classes["sign-up-text"]}>Sign up</span>
+      </p>
+      <div
+        className={classes["close-icon-container"]}
+        onClick={crossIconClickHandler}
+      >
+        X
       </div>
     </div>
   );

@@ -1,8 +1,129 @@
 @import "../../../designSystem/library.scss";
 
 .header-container {
-  border: 1px solid red;
+  font-family: $font-quaternary;
 
   .header-strip-container {
+    display: flex;
+    align-items: center;
+    background-color: $secondary-100;
+    height: 70px;
+    padding: 0 1.5rem;
+
+    .logo-container {
+      color: $primary-100;
+      font-size: 20px;
+      flex: 1;
+    }
+
+    .nav-link-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      height: 100%;
+      flex: 3;
+      cursor: pointer;
+      font-weight: 300;
+      font-size: 14px;
+
+      .arrow-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.4rem;
+        translate: all linear 0.5s;
+        position: relative;
+
+        .dropdown-wrapper {
+          position: absolute;
+          top: 1.6rem;
+        }
+      }
+
+      .arrow-container:hover {
+        .arrow-container-text {
+          color: $primary-100;
+        }
+        svg {
+          // transform: rotate(180deg) !important;
+          transition: all linear 0.3s;
+          path {
+            stroke: $primary-100;
+          }
+        }
+      }
+    }
+
+    .header-tools-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      flex: 1;
+
+      .input-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: fit-content;
+        position: relative;
+
+        .search-icon-container {
+          position: absolute;
+          left: 0.5rem;
+        }
+
+        input {
+          height: 30px;
+          border: none;
+          padding-left: 2rem;
+          border-radius: 4px;
+          outline: none;
+        }
+
+        input:focus {
+          border-color: $primary-100;
+          outline: 2px solid $primary-100;
+        }
+      }
+
+      .cart-container {
+        margin-left: 0.8rem;
+        cursor: pointer;
+        svg {
+          path {
+            transition: fill linear 0.1s;
+          }
+        }
+      }
+
+      .cart-container:hover {
+        svg {
+          path {
+            fill: $primary-100;
+          }
+        }
+      }
+
+      .profile-container {
+        margin-left: 0.8rem;
+        cursor: pointer;
+
+        svg {
+          path {
+            transition: fill linear 0.1s;
+          }
+        }
+      }
+
+      .profile-container:hover {
+        svg {
+          path {
+            fill: $primary-100;
+          }
+        }
+      }
+    }
   }
 }

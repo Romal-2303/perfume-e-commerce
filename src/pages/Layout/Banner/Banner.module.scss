@@ -1,0 +1,35 @@
+@import "../../../designSystem/library";
+
+.banner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  font-family: $font-quaternary;
+  background-color: $primary-100;
+  color: white;
+  position: relative;
+
+  .banner-text {
+    letter-spacing: 0.5px;
+    font-size: 14px;
+    font-weight: 300;
+
+    .discount-text {
+      font-weight: 500;
+    }
+
+    .sign-up-text {
+      margin-left: 0.1rem;
+      text-decoration: underline;
+      cursor: pointer;
+      font-weight: 500;
+    }
+  }
+
+  .close-icon-container {
+    position: absolute;
+    right: 1.5rem;
+    cursor: pointer;
+  }
+}
