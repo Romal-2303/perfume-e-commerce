@@ -1,0 +1,46 @@
+@import "../../designSystem/library";
+
+.carousel-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  overflow-x: hidden;
+
+  .circle-container {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 111;
+
+    .circle-element {
+      cursor: pointer;
+      svg {
+        width: 12px;
+        height: 12px;
+      }
+    }
+
+    .circle-element-active {
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
+
+  .carousel-slide {
+    position: absolute;
+    height: 100%;
+    width: 850px;
+    transition: all linear 1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2rem;
+    background-color: $secondary-100;
+  }
+}
