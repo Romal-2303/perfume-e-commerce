@@ -9,7 +9,9 @@ let priorityCard1 = [
     <p className={classes["price-text"]}>
       New Price: <span>$270.00</span>
     </p>
-    <div className={classes["shop-now-btn"]}>SHOP NOW</div>
+    <div className={classes["shop-now-btn"]}>
+      SHOP NOW <div className={classes["custom-underline"]}></div>
+    </div>
   </>,
   <>
     <p className={classes["small-text-1"]}>SALE UPTO 40% OFF!</p>
@@ -17,7 +19,9 @@ let priorityCard1 = [
     <p className={classes["price-text"]}>
       New Price: <span>$270.00</span>
     </p>
-    <div className={classes["shop-now-btn"]}>SHOP NOW</div>
+    <div className={classes["shop-now-btn"]}>
+      SHOP NOW <div className={classes["custom-underline"]}></div>
+    </div>
   </>,
   <>
     <p className={classes["small-text-1"]}>SALE UPTO 40% OFF!</p>
@@ -25,7 +29,9 @@ let priorityCard1 = [
     <p className={classes["price-text"]}>
       New Price: <span>$270.00</span>
     </p>
-    <div className={classes["shop-now-btn"]}>SHOP NOW</div>
+    <div className={classes["shop-now-btn"]}>
+      SHOP NOW <div className={classes["custom-underline"]}></div>
+    </div>
   </>,
 ];
 
@@ -62,7 +68,12 @@ const ShowCase = () => {
             <p className={classes["card-desc"]}>
               Adipiscing elit curabitur senectus sem
             </p>
-            <div className={classes["shop-now-btn"]}>SHOP NOW</div>
+            <div className={classes["shop-now-btn-container"]}>
+              <div className={classes["shop-now-btn"]}>
+                SHOP NOW
+                <div className={classes["custom-underline"]}></div>
+              </div>
+            </div>
           </div>
           <div className={classes["card-image-container"]}></div>
         </div>

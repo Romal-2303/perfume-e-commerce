@@ -14,7 +14,7 @@ const Carousel = ({ carouselArr, carouselStyle = {} }: CarouselProps) => {
 
   useEffect(() => {
     intervalRef.current = setInterval(() => {
-      // nextClickHandler();
+      nextClickHandler();
     }, 2000);
 
     return () => {

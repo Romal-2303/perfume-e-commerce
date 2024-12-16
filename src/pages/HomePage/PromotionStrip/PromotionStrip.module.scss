@@ -1,0 +1,37 @@
+@import "../../../designSystem/library";
+
+.promotion-strip-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+  height: 210px;
+  background-color: $primary-100;
+  font-family: $font-quaternary;
+  gap: 0rem;
+
+  .promotion-block {
+    height: 100%;
+    width: 26%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    gap: 1rem;
+
+    .content-container {
+      .content-title {
+        font-weight: 500;
+        margin-bottom: 1rem;
+        font-family: $font-secondary;
+        font-size: 20px;
+      }
+      .content-desc {
+        line-height: 20px;
+        font-family: $font-tertiary;
+        letter-spacing: 0.6px;
+        font-size: 12px;
+      }
+    }
+  }
+}

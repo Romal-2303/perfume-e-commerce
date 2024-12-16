@@ -1,0 +1,138 @@
+@import "../../../designSystem/library";
+
+.category-section-container {
+  font-family: $font-quaternary;
+  margin-top: 5rem;
+
+  .filter-blocks-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    height: 50px;
+
+    .filter-block {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border-radius: 25px;
+      background-color: black;
+      padding: 0.8rem 1.4rem;
+      color: white;
+      letter-spacing: 1px;
+      cursor: pointer;
+      width: 160px;
+    }
+
+    .filter-block:hover {
+    }
+
+    .filter-block-active {
+      background-color: $primary-100;
+    }
+
+    .filter-block-inactive:hover {
+      background-color: rgb(47, 47, 47);
+    }
+  }
+
+  .perfume-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    height: 800px;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    .perfume-card {
+      height: 375px;
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+
+      .perfume-image-container {
+        flex: 2;
+        background-color: rgba(163, 132, 85, 0.227);
+        padding: 0.2rem;
+        width: 100%;
+      }
+
+      .perfume-content-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        border: 1px solid rgb(208, 208, 208);
+        border-top: none;
+        width: calc(100% - 1px);
+      }
+
+      .new-tag {
+        position: absolute;
+        background-color: $primary-100;
+        color: white;
+        font-size: 10px;
+        padding: 0.2rem 0.5rem;
+        border-radius: 25px;
+        top: 0.5rem;
+        left: 0.5rem;
+        letter-spacing: 1px;
+      }
+
+      .card-utilities {
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 60px;
+        width: 150px;
+        border-radius: 35px;
+        background-color: $primary-100;
+        opacity: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        .like-btn-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 30px;
+          height: 30px;
+        }
+
+        .like-btn-container:active {
+          svg {
+            path {
+            }
+          }
+        }
+      }
+
+      .card-utilities-active {
+        opacity: 100;
+        top: 40%;
+        transition: all linear 0.3s;
+      }
+    }
+
+    .perfume-card:hover {
+      border: 1px solid $primary-100;
+
+      .perfume-content-container {
+        border: none;
+        width: 100%;
+      }
+
+      .new-tag {
+        top: calc(0.5rem - 1px);
+        left: calc(0.5rem - 1px);
+      }
+    }
+  }
+}
