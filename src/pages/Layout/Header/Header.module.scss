@@ -2,6 +2,8 @@
 
 .header-container {
   font-family: $font-quaternary;
+  position: sticky;
+  top: 0;
 
   .header-strip-container {
     display: flex;

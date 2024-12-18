@@ -35,8 +35,33 @@
       .our-latest-news-image{
           height: 280px;
           width: 370px;
-          background-color: #f2f2f3;
+          background-color: rgba(163, 132, 85, 0.227);;
       }
+
+      .date{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        color: #aaa;
+        font-size: 11px;
+      }
+
+      .heading{
+        display: flex;
+        justify-content: flex-start;
+        // margin-bottom: 1rem;
+      }
+
+      .deatals{
+        display: flex;
+        justify-content: flex-start;
+        padding-right: 2rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        font-size: 16px;
+        color: #666;
+        line-height: 26px;
+      }
+
     }
 }
 }
