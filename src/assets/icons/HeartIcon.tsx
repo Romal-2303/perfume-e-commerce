@@ -1,13 +1,19 @@
 interface SvgProps {
   color?: string;
+  width?: string;
+  height?: string;
 }
 
-const HeartIcon = ({ color = "#000000" }: SvgProps) => {
+const HeartIcon = ({
+  color = "#000000",
+  width = "28px",
+  height = "28px",
+}: SvgProps) => {
   return (
     <svg
       fill={color}
-      width="28px"
-      height="28px"
+      width={width}
+      height={height}
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >

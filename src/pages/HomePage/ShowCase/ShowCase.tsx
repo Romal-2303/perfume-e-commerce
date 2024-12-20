@@ -1,12 +1,16 @@
-import { useEffect } from "react";
 import Carousel from "../../../components/Carousel/Carousel";
 import classes from "./ShowCase.module.scss";
+import Christmas from "../../../assets/Images/christmas.jpg";
+import Gym1 from "../../../assets/Images/Gym1.jpg";
+import WomanShopping from "../../../assets/Images/WomanShopping.jpg";
+import Purse from "../../../assets/Images/purse.jpg";
+import PinkShop from "../../../assets/Images/PinkShop.jpg";
 
 let priorityCard1 = [
   <>
     <p className={classes["small-text-1"]}>SALE UPTO 40% OFF!</p>
-    <p className={classes["main-text"]}>Spring Summer Collection</p>
-    <p className={classes["price-text"]}>
+    <p className={classes["main-text"]}>Christmas Winter Collection</p>
+    <p className={classes["price-text-1"]}>
       New Price: <span>$270.00</span>
     </p>
     <div className={classes["shop-now-btn"]}>
@@ -15,7 +19,10 @@ let priorityCard1 = [
   </>,
   <>
     <p className={classes["small-text-1"]}>SALE UPTO 40% OFF!</p>
-    <p className={classes["main-text"]}>Spring Summer Collection</p>
+    <p className={classes["main-text"]}>
+      Premium <span className={classes["workout-text"]}>Workout</span>{" "}
+      Collection
+    </p>
     <p className={classes["price-text"]}>
       New Price: <span>$270.00</span>
     </p>
@@ -24,9 +31,9 @@ let priorityCard1 = [
     </div>
   </>,
   <>
-    <p className={classes["small-text-1"]}>SALE UPTO 40% OFF!</p>
-    <p className={classes["main-text"]}>Spring Summer Collection</p>
-    <p className={classes["price-text"]}>
+    <p className={classes["small-text-3"]}>SALE UPTO 40% OFF!</p>
+    <p className={classes["main-text"]}>Grab the Offer Now!</p>
+    <p className={classes["price-text-1"]}>
       New Price: <span>$270.00</span>
     </p>
     <div className={classes["shop-now-btn"]}>
@@ -35,23 +42,55 @@ let priorityCard1 = [
   </>,
 ];
 
-const ShowCase = () => {
-  useEffect(() => {
-    fetch("https://fimgs.net/mdimg/perfume/") // Example API endpoint
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok " + response.statusText);
-        }
+interface ShowCaseProps {
+  cardRef: any;
+}
 
-        return response.json(); // Parse the JSON from the response
-      })
-      .then((data) => {
-        console.log("Fetched data:", data); // Handle the JSON data
-      })
-      .catch((error) => {
-        console.error("There was a problem with the fetch operation:", error);
-      });
-  }, []);
+const ShowCase = ({ cardRef }: ShowCaseProps) => {
+  const showNowClickHandler = () => {
+    // cardRef.current?.scrollIntoView({ behavior: "smooth" });
+
+    if (cardRef.current) {
+      const targetPosition = cardRef.current.offsetTop; // Position to scroll to
+      const startPosition = window.scrollY; // Current position
+      const distance = targetPosition - startPosition; // Total distance to scroll
+      const duration = 1000; // Duration in milliseconds (2 seconds)
+      let startTime: number | null = null;
+
+      const animateScroll = (currentTime: number) => {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+
+        // Easing function for smooth scrolling
+        const ease = easeInOutQuad(
+          timeElapsed,
+          startPosition,
+          distance,
+          duration
+        );
+        window.scrollTo(0, ease);
+
+        if (timeElapsed < duration) {
+          window.requestAnimationFrame(animateScroll);
+        }
+      };
+
+      // Easing function for smooth animation
+      const easeInOutQuad = (
+        t: number,
+        b: number,
+        c: number,
+        d: number
+      ): number => {
+        t /= d / 2;
+        if (t < 1) return (c / 2) * t * t + b;
+        t--;
+        return (-c / 2) * (t * (t - 2) - 1) + b;
+      };
+
+      window.requestAnimationFrame(animateScroll);
+    }
+  };
 
   return (
     <div className={classes["showcase-container"]}>
@@ -59,6 +98,7 @@ const ShowCase = () => {
         <Carousel
           carouselArr={priorityCard1}
           carouselStyle={{ width: "850px" }}
+          imgArr={[Christmas, Gym1, WomanShopping]}
         />
       </div>
       <div className={classes["right-cards-container"]}>
@@ -69,13 +109,18 @@ const ShowCase = () => {
               Adipiscing elit curabitur senectus sem
             </p>
             <div className={classes["shop-now-btn-container"]}>
-              <div className={classes["shop-now-btn"]}>
+              <div
+                className={classes["shop-now-btn"]}
+                onClick={showNowClickHandler}
+              >
                 SHOP NOW
                 <div className={classes["custom-underline"]}></div>
               </div>
             </div>
           </div>
-          <div className={classes["card-image-container"]}></div>
+          <div className={classes["card-image-container"]}>
+            <img src={Purse} alt="example.jpg"></img>
+          </div>
         </div>
         <div className={classes["priority-3-container"]}>
           <div className={classes["card-content"]}>
@@ -85,7 +130,9 @@ const ShowCase = () => {
             </p>
             <p className={classes["price-text"]}>$379.00</p>
           </div>
-          <div className={classes["card-image-container"]}></div>
+          <div className={classes["card-image-container"]}>
+            <img src={PinkShop} alt="example.jpg"></img>
+          </div>
         </div>
       </div>
     </div>

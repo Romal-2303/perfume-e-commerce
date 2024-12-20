@@ -1,6 +1,7 @@
 import { useState } from "react";
 import classes from "./ImageGallery.module.scss";
 import Arrow from "../../assets/icons/Arrow";
+import { motion } from "framer-motion";
 
 interface ImagegalleryProps {
   imageArr?: [];

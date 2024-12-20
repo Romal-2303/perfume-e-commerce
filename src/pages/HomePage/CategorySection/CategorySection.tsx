@@ -6,29 +6,45 @@ import HeartIcon from "../../../assets/icons/HeartIcon";
 import FilledHeartIcon from "../../../assets/icons/FilledHeartIcon";
 import Modal from "../../../components/Modal/Modal";
 import ModalContent from "./ModalContent/ModalContent";
-import { imageArr, perfumesObj } from "../../../utilites/dummyData";
-import { motion, useAnimation } from "framer-motion";
+import { perfumesObj } from "../../../utilites/dummyData";
+import { motion } from "framer-motion";
+import Pagination from "../../../components/Pagination/Pagination";
+import Loader from "../../../components/Loader/Loader";
 
-const CategorySection = () => {
+interface CategorySectionProps {
+  cardRef: any;
+}
+
+const CategorySection = ({ cardRef }: CategorySectionProps) => {
   const [cardHoveredIndex, setCardHoveredIndex] = useState<number | null>(0);
   const [selectedBlock, setSelectedBlock] = useState<string>("Bestseller");
   const [likeHovered, setLikeHovered] = useState(false);
   const [modalVisibility, setModalVisibility] = useState(false);
   const [clickedCardIndex, setClickedCardIndex] = useState<number>(0);
-
-  const controls = useAnimation(); // Framer Motion control
+  const [receivedList, setReceivedList] = useState([]);
+  const [selectedCardData, setSelectedCardData] = useState<any>({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (modalVisibility) {
-      document.body.style.overflow = "hidden"; // Disable scroll
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = ""; // Enable scroll
+      document.body.style.overflow = "";
     }
 
     return () => {
       document.body.style.overflow = "";
     };
   }, [modalVisibility]);
+
+  useEffect(() => {
+    fetch("https://api.escuelajs.co/api/v1/products")
+      .then((res) => res.json())
+      .then((receivedClothData) => {
+        setReceivedList(receivedClothData);
+        setLoading(false);
+      });
+  }, []);
 
   const blockCLickHandler = (receivedBlock: string) => () => {
     setSelectedBlock(receivedBlock);
@@ -50,17 +66,24 @@ const CategorySection = () => {
     setLikeHovered(false);
   };
 
-  const likedClickedHandler = () => {
+  const likedClickedHandler = (event: React.MouseEvent) => {
+    event.stopPropagation();
     // <------- send request -------> //
   };
 
-  const shopClickHandler = (receivedIndex: number) => () => {
-    setModalVisibility(true);
-    setClickedCardIndex(receivedIndex);
-  };
+  const shopClickHandler =
+    (receivedIndex: number, receivedClothData: any) => () => {
+      setModalVisibility(true);
+      setClickedCardIndex(receivedIndex);
+      setSelectedCardData(receivedClothData);
+    };
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
-    <div className={classes["category-section-container"]}>
+    <div className={classes["category-section-container"]} ref={cardRef}>
       <div className={classes["filter-blocks-container"]}>
         {Object.keys(perfumesObj).map((block: string) => (
           <div
@@ -76,7 +99,7 @@ const CategorySection = () => {
         ))}
       </div>
       <div className={classes["perfume-cards-container"]}>
-        {perfumesObj[selectedBlock].map((el: any, index: number) => (
+        {receivedList.slice(0, 8).map((el: any, index: number) => (
           <motion.div
             className={classes["perfume-card"]}
             onMouseEnter={mouseEnterHandler(index)}
@@ -86,10 +109,13 @@ const CategorySection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8, delay: index * 0.1 }}
+            onClick={shopClickHandler(index, el)}
           >
-            <div className={classes["perfume-image-container"]}></div>
+            <div className={classes["perfume-image-container"]}>
+              <img src={el.images[0]} alt="cloth.jpg"></img>
+            </div>
             <div className={classes["perfume-content-container"]}>
-              <p>{el.name}</p>
+              <p>{el.title}</p>
             </div>
             <div className={classes["new-tag"]}>New</div>
             <div
@@ -111,12 +137,15 @@ const CategorySection = () => {
                   <HeartIcon color="white" />
                 )}
               </div>
-              <div className={classes["search-btn-container"]}>
+              <div
+                className={classes["search-btn-container"]}
+                onClick={likedClickedHandler}
+              >
                 <SearchIcon color="white" />
               </div>
               <div
                 className={classes["shop-btn-container"]}
-                onClick={shopClickHandler(index)}
+                onClick={shopClickHandler(index, el)}
               >
                 <ShopIcon />
               </div>
@@ -124,13 +153,13 @@ const CategorySection = () => {
           </motion.div>
         ))}
       </div>
-
+      <Pagination limit={4} maxPage={20} />
       <Modal
         modalVisibility={modalVisibility}
         setModalVisibility={setModalVisibility}
       >
         <ModalContent
-          imageArr={imageArr}
+          imageArr={selectedCardData?.images}
           perfumesObj={perfumesObj}
           selectedBlock={selectedBlock}
           clickedCardIndex={clickedCardIndex}

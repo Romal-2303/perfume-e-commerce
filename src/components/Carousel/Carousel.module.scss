@@ -14,7 +14,7 @@
     transform: translateX(-50%);
     display: flex;
     gap: 1rem;
-    z-index: 111;
+    z-index: 12;
 
     .circle-element {
       cursor: pointer;
@@ -42,5 +42,20 @@
     justify-content: center;
     padding-left: 2rem;
     background-color: $secondary-100;
+    z-index: 11;
+    overflow: hidden;
+
+    .background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
   }
 }

@@ -1,4 +1,4 @@
-import { ReactNode, act, useEffect, useRef, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import classes from "./Carousel.module.scss";
 import EmptyCircle from "../../assets/icons/EmptyCircle";
 import FilledCircle from "../../assets/icons/FilledCircle";
@@ -6,9 +6,14 @@ import FilledCircle from "../../assets/icons/FilledCircle";
 interface CarouselProps {
   carouselArr: ReactNode[];
   carouselStyle?: React.CSSProperties;
+  imgArr?: any[];
 }
 
-const Carousel = ({ carouselArr, carouselStyle = {} }: CarouselProps) => {
+const Carousel = ({
+  carouselArr,
+  carouselStyle = {},
+  imgArr = [],
+}: CarouselProps) => {
   const intervalRef = useRef<any>(null);
   const [activeSlide, setActiveSlide] = useState(0);
 
@@ -52,9 +57,9 @@ const Carousel = ({ carouselArr, carouselStyle = {} }: CarouselProps) => {
             onClick={circlElementClickHandler(index)}
           >
             {activeSlide === index ? (
-              <FilledCircle />
+              <FilledCircle color="white" />
             ) : (
-              <EmptyCircle strokeWidth={0.2} />
+              <EmptyCircle strokeWidth={0.2} color="white" />
             )}
           </div>
         ))}
@@ -66,6 +71,9 @@ const Carousel = ({ carouselArr, carouselStyle = {} }: CarouselProps) => {
             style={{ left: `${850 * (index - activeSlide)}px` }}
           >
             {ele}
+            <div className={classes["background-image"]}>
+              <img src={imgArr[index]} alt="example.jpg"></img>
+            </div>
           </div>
         );
       })}

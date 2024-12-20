@@ -3,6 +3,9 @@ import ImageGallery from "../../../../components/ImageGallery/ImageGallery";
 import { StringMappingType } from "typescript";
 import TickMark from "../../../../assets/icons/TickMark";
 import { useState } from "react";
+import HeartIcon from "../../../../assets/icons/HeartIcon";
+import Ruler from "../../../../assets/icons/Ruler";
+import { motion } from "framer-motion";
 
 interface ModalContentProps {
   imageArr: any;
@@ -18,9 +21,29 @@ const ModalContent = ({
   clickedCardIndex,
 }: ModalContentProps) => {
   const [selectedColorIndex, setSelectedColorIndex] = useState<number>(0);
+  const [selectedSizeIndex, setSelectedSizeIndex] = useState<number>(0);
+  const [counter, setCounter] = useState(1);
 
   const blockClickHandler = (receviedIndex: number) => () => {
     setSelectedColorIndex(receviedIndex);
+  };
+
+  const sizeBlockClickHandler = (receviedIndex: number) => () => {
+    setSelectedSizeIndex(receviedIndex);
+  };
+
+  const counterChangeHandler = (receivedVar: string) => () => {
+    if (receivedVar === "increase") {
+      setCounter((prevState) => prevState + 1);
+    } else {
+      setCounter((prevState) => {
+        if (prevState - 1 > 1) {
+          return prevState - 1;
+        } else {
+          return 1;
+        }
+      });
+    }
   };
 
   return (
@@ -69,17 +92,52 @@ const ModalContent = ({
         <p className={classes["product-size"]}>Pots Size:</p>
         <div className={classes["product-size-blocks-container"]}>
           {perfumesObj[selectedBlock][clickedCardIndex ?? 0].size.map(
-            (el: string) => (
-              <div>{el}</div>
+            (el: string, index: number) => (
+              <div
+                className={
+                  selectedSizeIndex === index
+                    ? `${classes["block-container"]} ${classes["block-container-active"]}`
+                    : classes["block-container"]
+                }
+                onClick={sizeBlockClickHandler(index)}
+              >
+                {el}
+              </div>
             )
           )}
         </div>
         <div className={classes["card-utilities-container"]}>
           <div className={classes["wishlist-chartsize-container"]}>
-            <div className={classes["wishlist-container"]}></div>
-            <div className={classes["chartsize-container"]}></div>
+            <div className={classes["wishlist-container"]}>
+              <HeartIcon width="20px" height="20px" /> Add to Wishlist
+            </div>
+            <div className={classes["chartsize-container"]}>
+              <Ruler width="20px" height="20px" /> View Size Chart
+            </div>
           </div>
-          <div className={classes["add-to-card-wrapper"]}></div>
+          <div className={classes["add-to-card-wrapper"]}>
+            <div className={classes["number-controller"]}>
+              <p
+                onClick={counterChangeHandler("decrease")}
+                className={classes["minus-container"]}
+              >
+                -
+              </p>
+              <p className={classes["counter-container"]}>{counter}</p>
+              <p
+                onClick={counterChangeHandler("increase")}
+                className={classes["plus-container"]}
+              >
+                +
+              </p>
+            </div>
+            <motion.button
+              whileTap={{ scale: 0.9, rotate: 1 }}
+              className={classes["add-to-cart-btn"]}
+            >
+              ADD TO CART
+            </motion.button>
+          </div>
         </div>
       </div>
     </div>

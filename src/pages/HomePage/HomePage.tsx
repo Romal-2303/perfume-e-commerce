@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import BestCollections from "./BestCollections/BestCollections";
 import DealOfTheDay from "./DealOfTheDay/DealOfTheDay";
 import classes from "./HomePage.module.scss";
@@ -7,18 +8,19 @@ import PromotionStrip from "./PromotionStrip/PromotionStrip";
 import ShowCase from "./ShowCase/ShowCase";
 
 const HomePage = () => {
+  const cardRef = useRef<HTMLDivElement | null>(null);
+
   return (
     <div className={classes["homepage-container"]}>
-      <ShowCase />
+      <ShowCase cardRef={cardRef} />
 
-      <DealOfTheDay/>
+      <DealOfTheDay />
 
-      <BestCollections/>
+      <BestCollections />
 
-
-      <OurLastestNews/>
-      <CategorySection />
+      <CategorySection cardRef={cardRef} />
       <PromotionStrip />
+      <OurLastestNews />
     </div>
   );
 };

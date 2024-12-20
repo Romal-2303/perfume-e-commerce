@@ -1,0 +1,54 @@
+@import "../../designSystem/library";
+
+.pagination-container {
+  width: fit-content;
+  margin: auto;
+  margin-top: 4rem;
+  height: 50px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: $font-tertiary;
+  padding: 0 1rem;
+  background-color: white;
+  border: 1px solid rgb(208, 208, 208);
+  gap: 1.5rem;
+
+  .prev-btn-container,
+  .next-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .pages-number-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    .number-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      height: 30px;
+      width: 30px;
+    }
+
+    .active-page {
+      background-color: $primary-100;
+      color: white;
+      border-radius: 50%;
+    }
+
+    .dot-container {
+      margin-bottom: 3%;
+    }
+  }
+}
