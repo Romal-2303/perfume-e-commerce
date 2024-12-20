@@ -13,11 +13,8 @@ const HomePage = () => {
   return (
     <div className={classes["homepage-container"]}>
       <ShowCase cardRef={cardRef} />
-
       <DealOfTheDay />
-
       <BestCollections />
-
       <CategorySection cardRef={cardRef} />
       <PromotionStrip />
       <OurLastestNews />

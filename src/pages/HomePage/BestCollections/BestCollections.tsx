@@ -1,4 +1,3 @@
-import React from "react";
 import classes from "./BestCollections.module.scss";
 
 const BestCollections = () => {

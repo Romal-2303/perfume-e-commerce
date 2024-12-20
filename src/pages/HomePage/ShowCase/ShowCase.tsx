@@ -119,7 +119,12 @@ const ShowCase = ({ cardRef }: ShowCaseProps) => {
             </div>
           </div>
           <div className={classes["card-image-container"]}>
-            <img src={Purse} alt="example.jpg"></img>
+            <img
+              src={
+                "https://plus.unsplash.com/premium_photo-1700056214664-4bd97cec12b4?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              }
+              alt="example.jpg"
+            ></img>
           </div>
         </div>
         <div className={classes["priority-3-container"]}>

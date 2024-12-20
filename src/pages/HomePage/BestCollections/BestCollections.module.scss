@@ -1,9 +1,12 @@
+@import "../../../designSystem/library";
+
 .best-collection-container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 2rem;
+  margin-top: 3rem;
 
   .collections-container {
     display: flex;
@@ -25,7 +28,7 @@
 
       .collection-data {
         font-size: 14px;
-        color: #ab8e66;
+        color: $primary-100;
         font-weight: 600;
         margin-bottom: 0.5rem;
 
@@ -144,7 +147,7 @@
         margin-bottom: 2rem;
 
         .highlight {
-          color: #ab8e66;
+          color: $primary-100;
           font-size: 30px;
           font-weight: 600;
         }

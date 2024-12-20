@@ -1,6 +1,9 @@
+@import "../../../designSystem/library";
+
 .deal-of-the-day-container {
-  margin: 4rem 4rem;
-  padding: 4rem;
+  margin-top: 2rem;
+  padding: 1rem 5rem;
+  font-family: $font-tertiary;
 
   .heading {
     display: flex;
@@ -8,6 +11,7 @@
     justify-content: center;
     font-weight: 600;
     font-size: 28px;
+    letter-spacing: 2px;
   }
 
   .underline-container {
@@ -18,9 +22,9 @@
     .underline {
       height: 3px;
       width: 100px;
-      background-color: #ab8e66;
+      background-color: $primary-100;
       margin-top: 10px;
-      margin-bottom: 10px;
+      margin-bottom: 2rem;
     }
   }
 
@@ -30,135 +34,149 @@
 
     .deal-of-the-day-card-container {
       display: flex;
-      transition: transform 0.9s ease-in-out !important;
-      // gap: 15px;
+      transition: transform 0.9s ease-in-out;
       gap: 30px;
-    }
 
-    .deal-of-the-day-card {
-      // flex: 0 0 23.8% !important;
-      flex: 0 0 22.8% !important;
-      height: 420px;
-
-      .deal-of-the-day-card .image-container {
-        position: relative;
-      }
-
-      .new-label {
-        position: absolute;
-        top: 15px;
-        left: 10px;
-        font-weight: 400;
-        color: #fff;
-        padding: 4px 7px;
-        padding-top: 8px;
-        border-radius: 16px;
-        font-size: 13px;
-        background-color: #ab8e66;
-      }
-
-      .hover-icons {
-        display: none;
-        position: absolute;
-        top: 110px;
-        left: 120px;
-        background-color: #ab8e66;
-        padding: 17px;
-      }
-
-      &:hover {
-        border: 1px solid #ab8e66;
-        .hover-icons {
-          display: block;
-        }
-      }
-
-      .image-container {
-        width: 100%;
-        height: 230px;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        border: none;
-        border-radius: 2px;
-        position: relative;
-
-        .icons {
-          background-color: #ab8e66;
-          position: absolute;
-          top: 100px;
-          left: 60px;
-          padding: 5px;
-          padding-left: 20px;
-          padding-right: 20px;
-          border-radius: 18px;
-          display: flex;
-          align-items: center;
-          gap: 25px;
-        }
-
-        .deal-of-the-day-card:hover .icons {
-          opacity: 1;
-        }
-      }
-
-      .product-details {
-        border: 1px solid #edeaea !important;
-        height: 190px;
-        border-radius: 2px;
+      .deal-of-the-day-card {
         display: flex;
-        align-items: center;
         flex-direction: column;
+        height: 420px;
+        border: 1px solid rgb(208, 208, 208);
+        cursor: pointer;
 
-        .timer-container {
-          margin: 1rem;
-          margin-top: 0.5rem;
-          margin-bottom: 0.5rem;
-          display: flex;
-          flex-direction: row;
-          gap: 1rem;
+        &:hover {
+          border: 1px solid $primary-100;
+        }
 
-          .circle {
-            width: 45px;
-            height: 45px;
-            border-radius: 100%;
-            background-color: #efefef;
+        .image-container {
+          position: relative;
+          border: none;
+          flex: 3;
+          width: 100%;
+          border-radius: 2px;
+          height: 310px;
+
+          img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            background-position: center;
+          }
+
+          .icons {
+            background-color: $primary-100;
+            position: absolute;
+            top: 100px;
+            left: 60px;
+            padding: 5px;
+            padding-left: 20px;
+            padding-right: 20px;
+            border-radius: 18px;
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+          }
+
+          .deal-of-the-day-card:hover .icons {
+            opacity: 1;
+          }
+
+          .quick-buy-strip {
+            position: absolute;
+            bottom: 0rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            height: 35px;
+            border-radius: 4px;
+            background-color: $primary-100;
+            display: flex;
             justify-content: center;
             align-items: center;
-            font-weight: 600;
+            color: white;
+            font-family: 500;
+            letter-spacing: 1.5px;
+            font-size: 16px;
+            opacity: 0;
+            transition: all ease-in-out 0.3s;
+          }
 
-            .black-text {
-              font-size: 13px;
-              color: black; 
-            }
-
-            .grey-text {
-              font-size: 13px;
-              color: grey; 
-            }
+          .quick-buy-strip-active {
+            opacity: 100;
+            bottom: 1rem;
           }
         }
 
-        .product-name {
-          font-size: 22px;
-          color: #ab8e66;
-          margin-top: 1rem;
-          margin-bottom: 0.2rem;
-          font-weight: 600;
+        .new-label {
+          position: absolute;
+          background-color: $primary-100;
+          color: white;
+          font-size: 10px;
+          padding: 0.2rem 0.5rem;
+          border-radius: 25px;
+          top: 1rem;
+          left: 1rem;
+          letter-spacing: 1px;
         }
 
-        .pricing {
-          margin-top: 10px;
+        .product-details {
+          border-radius: 2px;
           display: flex;
-          flex-direction: row;
-          gap: 5px;
-          font-weight: 500;
+          align-items: center;
+          flex-direction: column;
+          flex: 2.3;
 
-          .previous-cost {
-            text-decoration: line-through;
-            color: #aaa;
+          .timer-container {
+            margin: 1rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+
+            .circle {
+              width: 40px;
+              height: 40px;
+              border-radius: 100%;
+              background-color: #efefef;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              font-weight: 600;
+              padding: 1.7rem;
+
+              .black-text {
+                font-size: 12px;
+                color: black;
+              }
+
+              .grey-text {
+                font-size: 12px;
+                color: grey;
+              }
+            }
+          }
+
+          .product-name {
+            font-size: 22px;
+            color: $primary-100;
+            margin-top: 1rem;
+            margin-bottom: 0.2rem;
+            font-weight: 600;
+          }
+
+          .pricing {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            font-weight: 500;
+
+            .previous-cost {
+              text-decoration: line-through;
+              color: #aaa;
+            }
           }
         }
       }
@@ -168,7 +186,7 @@
   .pagination-dots {
     display: flex;
     justify-content: center;
-    margin-top: 1.75rem;
+    margin-top: 1rem;
 
     .dot {
       width: 10px;
@@ -178,7 +196,7 @@
       margin: 0 5px;
       cursor: pointer;
       &.active {
-        background-color: #ab8e66;
+        background-color: $primary-100;
       }
     }
   }

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import classes from "./DealOfTheDay.module.scss";
-import { DealtOfTheDayData } from "./data";
+import { DealtOfTheDayData } from "../../../utilites/DealOfTheDayData";
 import LikeSearchShop from "./LikeSearchShop";
 
 const DealOfTheDay = () => {
@@ -38,15 +38,20 @@ const DealOfTheDay = () => {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <div
-                className={classes["image-container"]}
-                style={{
-                  backgroundImage: `url('${item.imageUrl}')`,
-                }}
-              >
+              <div className={classes["image-container"]}>
                 <div className={classes["new-label"]}>New</div>
-
-                <LikeSearchShop isVisible={hoveredIndex === index} />
+                <img src={item.imageUrl[0]}></img>
+                {
+                  <div
+                    className={
+                      index === hoveredIndex
+                        ? `${classes["quick-buy-strip"]} ${classes["quick-buy-strip-active"]}`
+                        : classes["quick-buy-strip"]
+                    }
+                  >
+                    Buy
+                  </div>
+                }
               </div>
 
               <div className={classes["product-details"]}>
@@ -69,17 +74,17 @@ const DealOfTheDay = () => {
                   </div>
                 </div>
 
-                <div className={classes["product-name"]}>{item.name}</div>
+                {/* <div className={classes["product-name"]}>{item.name}</div> */}
                 <div className={classes["rating"]}>
-                  {"⭐".repeat(parseInt(item.rateStarNo))}
+                  {/* {"⭐".repeat(parseInt(item.rateStarNo))} */}
                 </div>
                 <div className={classes["pricing"]}>
+                  <span className={classes["current-cost"]}>${item.cost}</span>
                   {item.isDiscounted && (
                     <span className={classes["previous-cost"]}>
                       ${item.previouscost}
                     </span>
                   )}
-                  <span className={classes["current-cost"]}>${item.cost}</span>
                 </div>
               </div>
             </div>
