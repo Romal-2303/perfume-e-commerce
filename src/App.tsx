@@ -7,8 +7,8 @@ function App() {
   return (
     <div className={classes["app"]}>
       <Layout />
-      {/* <HomePage /> */}
-      <Checkout/>
+      <HomePage />
+      {/* <Checkout/> */}
     </div>
   );
 }
