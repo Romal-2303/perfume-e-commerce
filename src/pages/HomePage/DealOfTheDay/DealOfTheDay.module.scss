@@ -1,0 +1,185 @@
+.deal-of-the-day-container {
+  margin: 4rem 4rem;
+  padding: 4rem;
+
+  .heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 28px;
+  }
+
+  .underline-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .underline {
+      height: 3px;
+      width: 100px;
+      background-color: #ab8e66;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .deal-of-the-day-slider {
+    overflow: hidden;
+    position: relative;
+
+    .deal-of-the-day-card-container {
+      display: flex;
+      transition: transform 0.9s ease-in-out !important;
+      // gap: 15px;
+      gap: 30px;
+    }
+
+    .deal-of-the-day-card {
+      // flex: 0 0 23.8% !important;
+      flex: 0 0 22.8% !important;
+      height: 420px;
+
+      .deal-of-the-day-card .image-container {
+        position: relative;
+      }
+
+      .new-label {
+        position: absolute;
+        top: 15px;
+        left: 10px;
+        font-weight: 400;
+        color: #fff;
+        padding: 4px 7px;
+        padding-top: 8px;
+        border-radius: 16px;
+        font-size: 13px;
+        background-color: #ab8e66;
+      }
+
+      .hover-icons {
+        display: none;
+        position: absolute;
+        top: 110px;
+        left: 120px;
+        background-color: #ab8e66;
+        padding: 17px;
+      }
+
+      &:hover {
+        border: 1px solid #ab8e66;
+        .hover-icons {
+          display: block;
+        }
+      }
+
+      .image-container {
+        width: 100%;
+        height: 230px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border: none;
+        border-radius: 2px;
+        position: relative;
+
+        .icons {
+          background-color: #ab8e66;
+          position: absolute;
+          top: 100px;
+          left: 60px;
+          padding: 5px;
+          padding-left: 20px;
+          padding-right: 20px;
+          border-radius: 18px;
+          display: flex;
+          align-items: center;
+          gap: 25px;
+        }
+
+        .deal-of-the-day-card:hover .icons {
+          opacity: 1;
+        }
+      }
+
+      .product-details {
+        border: 1px solid #edeaea !important;
+        height: 190px;
+        border-radius: 2px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .timer-container {
+          margin: 1rem;
+          margin-top: 0.5rem;
+          margin-bottom: 0.5rem;
+          display: flex;
+          flex-direction: row;
+          gap: 1rem;
+
+          .circle {
+            width: 45px;
+            height: 45px;
+            border-radius: 100%;
+            background-color: #efefef;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+
+            .black-text {
+              font-size: 13px;
+              color: black; 
+            }
+
+            .grey-text {
+              font-size: 13px;
+              color: grey; 
+            }
+          }
+        }
+
+        .product-name {
+          font-size: 22px;
+          color: #ab8e66;
+          margin-top: 1rem;
+          margin-bottom: 0.2rem;
+          font-weight: 600;
+        }
+
+        .pricing {
+          margin-top: 10px;
+          display: flex;
+          flex-direction: row;
+          gap: 5px;
+          font-weight: 500;
+
+          .previous-cost {
+            text-decoration: line-through;
+            color: #aaa;
+          }
+        }
+      }
+    }
+  }
+
+  .pagination-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.75rem;
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #ccc;
+      margin: 0 5px;
+      cursor: pointer;
+      &.active {
+        background-color: #ab8e66;
+      }
+    }
+  }
+}
