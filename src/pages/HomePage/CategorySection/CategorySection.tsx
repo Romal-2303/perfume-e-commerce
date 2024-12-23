@@ -24,6 +24,7 @@ const CategorySection = ({ cardRef }: CategorySectionProps) => {
   const [receivedList, setReceivedList] = useState([]);
   const [selectedCardData, setSelectedCardData] = useState<any>({});
   const [loading, setLoading] = useState(true);
+  const [pageNumber, setPageNumber] = useState(1);
 
   useEffect(() => {
     if (modalVisibility) {
@@ -38,13 +39,19 @@ const CategorySection = ({ cardRef }: CategorySectionProps) => {
   }, [modalVisibility]);
 
   useEffect(() => {
-    fetch("https://api.escuelajs.co/api/v1/products?offset=0&limit=10")
+    setLoading(true);
+
+    fetch(
+      `https://api.escuelajs.co/api/v1/products?offset=${
+        (pageNumber - 1) * 10
+      }&limit=10`
+    )
       .then((res) => res.json())
       .then((receivedClothData) => {
         setReceivedList(receivedClothData);
         setLoading(false);
       });
-  }, []);
+  }, [pageNumber]);
 
   const blockCLickHandler = (receivedBlock: string) => () => {
     setSelectedBlock(receivedBlock);
@@ -78,9 +85,9 @@ const CategorySection = ({ cardRef }: CategorySectionProps) => {
       setSelectedCardData(receivedClothData);
     };
 
-  if (loading) {
-    return <Loader />;
-  }
+  const pageChangeHandler = (receivedVal: number) => {
+    setPageNumber(receivedVal);
+  };
 
   return (
     <div className={classes["category-section-container"]} ref={cardRef}>
@@ -98,62 +105,74 @@ const CategorySection = ({ cardRef }: CategorySectionProps) => {
           </div>
         ))}
       </div>
-      <div className={classes["perfume-cards-container"]}>
-        {receivedList.slice(0, 8).map((el: any, index: number) => (
-          <motion.div
-            className={classes["perfume-card"]}
-            onMouseEnter={mouseEnterHandler(index)}
-            onMouseLeave={mouseLeaveHandler(index)}
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, delay: index * 0.1 }}
-            onClick={shopClickHandler(index, el)}
-          >
-            <div className={classes["perfume-image-container"]}>
-              <img src={el.images[0]} alt="cloth.jpg"></img>
-            </div>
-            <div className={classes["perfume-content-container"]}>
-              <p>{el.title}</p>
-            </div>
-            <div className={classes["new-tag"]}>New</div>
-            <div
-              className={
-                cardHoveredIndex === index
-                  ? `${classes["card-utilities"]} ${classes["card-utilities-active"]}`
-                  : `${classes["card-utilities"]}`
-              }
+
+      {loading ? (
+        <div className={classes["loader-wrapper"]}>
+          <Loader />
+        </div>
+      ) : (
+        <div className={classes["perfume-cards-container"]}>
+          {receivedList.slice(0, 8).map((el: any, index: number) => (
+            <motion.div
+              className={classes["perfume-card"]}
+              onMouseEnter={mouseEnterHandler(index)}
+              onMouseLeave={mouseLeaveHandler(index)}
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
+              onClick={shopClickHandler(index, el)}
             >
-              <div
-                className={classes["like-btn-container"]}
-                onClick={likedClickedHandler}
-                onMouseEnter={likeHoverContainer}
-                onMouseLeave={likeMouseLeaveHandler}
-              >
-                {likeHovered ? (
-                  <FilledHeartIcon />
-                ) : (
-                  <HeartIcon color="white" />
-                )}
+              <div className={classes["perfume-image-container"]}>
+                <img src={el.images[0]} alt="cloth.jpg"></img>
               </div>
-              <div
-                className={classes["search-btn-container"]}
-                onClick={likedClickedHandler}
-              >
-                <SearchIcon color="white" />
+              <div className={classes["perfume-content-container"]}>
+                <p>{el.title}</p>
               </div>
+              <div className={classes["new-tag"]}>New</div>
               <div
-                className={classes["shop-btn-container"]}
-                onClick={shopClickHandler(index, el)}
+                className={
+                  cardHoveredIndex === index
+                    ? `${classes["card-utilities"]} ${classes["card-utilities-active"]}`
+                    : `${classes["card-utilities"]}`
+                }
               >
-                <ShopIcon />
+                <div
+                  className={classes["like-btn-container"]}
+                  onClick={likedClickedHandler}
+                  onMouseEnter={likeHoverContainer}
+                  onMouseLeave={likeMouseLeaveHandler}
+                >
+                  {likeHovered ? (
+                    <FilledHeartIcon />
+                  ) : (
+                    <HeartIcon color="white" />
+                  )}
+                </div>
+                <div
+                  className={classes["search-btn-container"]}
+                  onClick={likedClickedHandler}
+                >
+                  <SearchIcon color="white" />
+                </div>
+                <div
+                  className={classes["shop-btn-container"]}
+                  onClick={shopClickHandler(index, el)}
+                >
+                  <ShopIcon />
+                </div>
               </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-      <Pagination limit={4} maxPage={20} />
+            </motion.div>
+          ))}
+        </div>
+      )}
+
+      <Pagination
+        limit={4}
+        maxPage={20}
+        pageChangeHandler={pageChangeHandler}
+      />
       <Modal
         modalVisibility={modalVisibility}
         setModalVisibility={setModalVisibility}

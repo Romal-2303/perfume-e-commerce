@@ -76,7 +76,7 @@ export const DealtOfTheDayData = [
   },
   {
     imageUrl: [
-      "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=3172&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1523205565295-f8e91625443b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8ODB8c29jQWF1YXVsUEl8fGVufDB8fHx8fA%3D%3D",
     ],
     isNew: true,
     isLiked: false,

@@ -6,9 +6,9 @@ import Checkout from "./pages/Checkout/Checkout";
 function App() {
   return (
     <div className={classes["app"]}>
-      <Layout />
-      <HomePage />
-      {/* <Checkout/> */}
+      <Layout>
+        <HomePage />
+      </Layout>
     </div>
   );
 }
