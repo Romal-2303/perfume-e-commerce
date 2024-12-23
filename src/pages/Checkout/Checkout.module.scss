@@ -1,8 +1,118 @@
-.checkout-container{
-    .left-conatiner{
+@import "../../designSystem/_library.scss";
 
+
+$box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+$background-color: #ffffff;
+$input-border-color: #e0e0e0;
+$input-padding: 10px;
+
+.checkout-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 1.5rem 0 2rem;
+  gap: 2rem;
+  background-color: #f3f2ef;
+  padding-bottom: 6rem;
+  font-family: $font-secondary;
+
+  .left-conatiner {
+    height: 40rem;
+    width: 45rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .delivery-information-container,
+    .schedule-delivery-container,
+    .payment-method-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .heading {
+        font-size: 18px;
+      }
+
+      &.delivery-information-container {
+        .delivery-information-body {
+          box-shadow: $box-shadow;
+          height: 20rem;
+          background-color: $background-color;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 0.6rem;
+
+          .input-conatiner-1,
+          .input-conatiner-2,
+          .input-conatiner-3 {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            font-size: 14px;
+
+            &.input-conatiner-1 {
+              gap: 1.5rem;
+            }
+
+            input {
+              border: 1px solid $input-border-color;
+              padding: $input-padding;
+            }
+          }
+
+          .input-address-4 {
+            font-size: 14px;
+
+            input {
+              border: 1px solid $input-border-color;
+              padding: $input-padding;
+            }
+          }
+        }
+      }
+
+      &.schedule-delivery-container {
+        .schedule-delivery-body {
+          height: 10rem;
+          box-shadow: $box-shadow;
+          background-color: $background-color;
+        }
+      }
+
+      .schedule-delivery-body{
+        padding: 15px;
+        padding-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      &.payment-method-container {
+        .payment-method-body {
+          height: 5rem;
+          box-shadow: $box-shadow;
+          background-color: $background-color;
+        }
+      }
     }
-    .right-container{
-        
+  }
+
+  .right-container {
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .heading {
+      font-size: 18px;
     }
+
+    .right-container-body {
+      height: 42rem;
+      box-shadow: $box-shadow;
+      background-color: $background-color;
+    }
+  }
 }
