@@ -3,7 +3,9 @@
 .our-latest-news-container {
   margin-left: 4rem;
   margin-right: 4rem;
-  padding: 4rem;
+  margin-top: 3rem;
+  padding: 0rem 4rem;
+
   .heading {
     display: flex;
     align-items: center;
@@ -28,7 +30,7 @@
   .our-latest-news-body {
     display: flex;
     flex-direction: row;
-    margin-top: 4rem;
+    margin-top: 2rem;
 
     .our-latest-news-card {
       width: 400px;

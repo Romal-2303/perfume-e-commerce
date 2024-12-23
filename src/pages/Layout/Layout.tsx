@@ -1,21 +1,19 @@
 import classes from "./Layout.module.scss";
 import Header from "./Header/Header";
 import { useScroll, useSpring, motion } from "framer-motion";
+import Footer from "./Footer/Footer";
+import { ReactNode } from "react";
 
-const Layout = () => {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
+interface LayoutProps {
+  children: ReactNode;
+}
 
-  console.log(scaleX);
-
+const Layout = ({ children }: LayoutProps) => {
   return (
     <div className={classes["layout-container"]}>
-      <motion.div className={classes["progress-bar"]} style={{ scaleX }} />
       <Header />
+      {children}
+      <Footer />
     </div>
   );
 };

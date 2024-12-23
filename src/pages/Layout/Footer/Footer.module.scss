@@ -1,0 +1,139 @@
+@import "../../../designSystem/library";
+
+.footer-container {
+  width: 100vw;
+  height: 380px;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: $font-secondary;
+  background-color: #1a1a1a;
+  color: white;
+
+  .upper-strip {
+    background-color: $primary-100;
+    height: 20px;
+    width: 100%;
+  }
+
+  .content-container {
+    height: 81%;
+    width: 100%;
+    padding: 2rem 3rem 0rem 3rem;
+
+    .news-letter-container {
+      width: 100%;
+      .sign-up-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+
+        .sign-up-text-container {
+          .title {
+            font-weight: 600;
+            font-size: 20px;
+            margin-bottom: 0.7rem;
+            letter-spacing: 1px;
+          }
+
+          .desc {
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: $gray500;
+          }
+        }
+
+        .email-container {
+          position: relative;
+          cursor: pointer;
+
+          input {
+            padding-bottom: 0.5rem;
+            padding-left: 0.2rem;
+            padding-right: 2rem;
+            border: none;
+            border-bottom: 1.5px solid white;
+            font-weight: 500;
+            color: black;
+            width: 280px;
+            outline: none;
+            background: none;
+            color: white;
+          }
+
+          .email-icon-container {
+            position: absolute;
+            right: 0rem;
+            top: 0rem;
+          }
+        }
+      }
+    }
+
+    .logo-link-column-container {
+      margin-top: 3rem;
+      display: flex;
+
+      .logo-container {
+        flex: 1;
+      }
+
+      .link-column-container {
+        flex: 2;
+        display: flex;
+        justify-content: space-evenly;
+
+        .resources-container,
+        .help-container,
+        .company-container,
+        .legal-container {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          .container-heading {
+            font-weight: 600;
+            font-size: 16px;
+          }
+
+          p {
+            font-size: 12px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  .separator {
+    height: 1px;
+    width: 95%;
+    background-color: $gray200;
+  }
+
+  .trademark-social-media-link-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0rem 3rem;
+    margin-top: 0.7rem;
+    margin-bottom: 0.7rem;
+
+    .trademark-text {
+      font-size: 12px;
+    }
+
+    .social-media-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background-color: RGB(31 31 31);
+      border: 1px solid rgba(48, 48, 48, 1);
+      border-radius: 7px;
+      padding: 0.5rem;
+      cursor: pointer;
+    }
+  }
+}

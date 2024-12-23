@@ -6,6 +6,7 @@ import CartIcon from "../../../assets/icons/CartIcon";
 import UserIcon from "../../../assets/icons/UserIcon";
 import Arrow from "../../../assets/icons/Arrow";
 import Dropdown from "../../../components/Dropdown/Dropdown";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 const headerArr = [
   {
@@ -39,6 +40,13 @@ const Header = () => {
   const [bannerVisibility, setBannerVisibility] = useState(true);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [dropdownVisiblity, setDropdownVisibility] = useState(false);
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   const linkClickHandler = (receivedIndex: number) => () => {
     setSelectedIndex(receivedIndex);
@@ -86,6 +94,7 @@ const Header = () => {
             <UserIcon color="#403f3f" />
           </div>
         </div>
+        <motion.div className={classes["progress-bar"]} style={{ scaleX }} />
       </div>
     </div>
   );

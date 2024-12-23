@@ -1,14 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Arrow from "../../assets/icons/Arrow";
 import classes from "./Pagination.module.scss";
 
 interface PaginationProps {
   limit: number;
   maxPage: number;
+  pageChangeHandler: (receivedVal: number) => any;
 }
 
-const Pagination = ({ limit = 4, maxPage = 10 }: PaginationProps) => {
+const Pagination = ({
+  limit = 4,
+  maxPage = 10,
+  pageChangeHandler,
+}: PaginationProps) => {
   const [activePage, setActivePage] = useState<number>(1);
+
+  useEffect(() => {
+    pageChangeHandler?.(activePage);
+  }, [activePage]);
 
   const actionBtnClickHandler = (receivedAction: string) => () => {
     if (receivedAction === "decrease") {

@@ -136,7 +136,12 @@ const ShowCase = ({ cardRef }: ShowCaseProps) => {
             <p className={classes["price-text"]}>$379.00</p>
           </div>
           <div className={classes["card-image-container"]}>
-            <img src={PinkShop} alt="example.jpg"></img>
+            <img
+              src={
+                "https://i.pinimg.com/originals/15/c8/57/15c857d2cdd7eb6bda0dc916d1f29402.png"
+              }
+              alt="example.jpg"
+            ></img>
           </div>
         </div>
       </div>
