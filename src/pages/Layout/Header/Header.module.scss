@@ -42,7 +42,7 @@
         .dropdown-wrapper {
           position: absolute;
           top: 1.6rem;
-          z-index: 2;
+          z-index: 1111;
         }
       }
 
@@ -139,7 +139,7 @@
       height: 5px;
       background-color: $primary-100;
       transform-origin: 0%;
-      z-index: 11111;
+      z-index: 111;
     }
   }
 }
