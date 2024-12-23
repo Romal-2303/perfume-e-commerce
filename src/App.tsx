@@ -8,6 +8,7 @@ function App() {
     <div className={classes["app"]}>
       <Layout>
         <HomePage />
+        {/* <Checkout/> */}
       </Layout>
     </div>
   );
