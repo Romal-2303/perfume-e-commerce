@@ -1,16 +1,25 @@
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Layout from "./pages/Layout/Layout";
-import classes from "./App.module.scss";
-import HomePage from "./pages/HomePage/HomePage";
-import Checkout from "./pages/Checkout/Checkout";
+import { routes } from "./pages/Routes/routesConfig";
 
 function App() {
   return (
-    <div className={classes["app"]}>
+    <Router>
       <Layout>
-        <HomePage />
-        {/* <Checkout/> */}
+        <Routes>
+          {routes.map((route) => {
+            const Component = route.component;
+            return (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={<Component />}
+              />
+            );
+          })}
+        </Routes>
       </Layout>
-    </div>
+    </Router>
   );
 }
 
