@@ -178,7 +178,7 @@ const CategorySection = ({ cardRef }: CategorySectionProps) => {
         setModalVisibility={setModalVisibility}
       >
         <ModalContent
-          imageArr={selectedCardData?.images}
+          selectedCardData={selectedCardData}
           perfumesObj={perfumesObj}
           selectedBlock={selectedBlock}
           clickedCardIndex={clickedCardIndex}

@@ -1,5 +1,6 @@
 import Checkout from "../Checkout/Checkout";
 import HomePage from "../HomePage/HomePage";
+import LoginSignup from "../LoginSignup/LoginSignup";
 
 type typeRoutesConfig = {
   path?: string | undefined;
@@ -14,5 +15,13 @@ export const routes: typeRoutesConfig[] = [
   {
     path: "/checkout",
     component: Checkout,
+  },
+  {
+    path: "/login",
+    component: LoginSignup,
+  },
+  {
+    path: "/signup",
+    component: LoginSignup,
   },
 ];

@@ -1,0 +1,179 @@
+@import "../../../designSystem/library";
+
+.create-account-wrapper {
+  flex: 1;
+  height: 100%;
+  background-color: #3a3a3a;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 5rem 0rem;
+  width: 50%;
+
+  .create-account-container {
+    padding: 0rem 5rem;
+    .create-account-text {
+      color: white;
+      font-size: 44px;
+    }
+
+    .already-text {
+      font-size: 14px;
+      color: #b0b0b0;
+      margin-top: 0.5rem;
+
+      span {
+        color: $primary-100;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+
+    .first-last-container {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+
+      input {
+        padding: 0.8rem 1rem;
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        color: white;
+        background-color: #4d4d4d;
+      }
+    }
+
+    .email-container,
+    .password-container {
+      margin-top: 2rem;
+
+      input {
+        padding: 0.8rem 1rem;
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        color: white;
+        background-color: #4d4d4d;
+        width: 100%;
+      }
+    }
+
+    .agree-check-container {
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      margin-top: 1rem;
+
+      input[type="checkbox"] {
+        appearance: none; /* Remove default checkbox styling */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: 20px; /* Set your desired size */
+        height: 20px;
+        background-color: #ffffff;
+        border: 1px solid #333; /* Optional: Add a border */
+        border-radius: 4px; /* Optional: Add rounded corners */
+
+        /* Center the checkmark */
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      input[type="checkbox"]:checked {
+        background-color: #aa8f66; /* Keep background for checked state */
+      }
+
+      input[type="checkbox"]:checked::after {
+        content: "✔"; /* Unicode or custom content for the checkmark */
+        font-size: 14px;
+        color: white; /* Checkmark color */
+      }
+
+      p {
+        color: white;
+        margin-left: 0.5rem;
+
+        a {
+          color: $primary-100;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .create-account-btn {
+      margin-top: 2.5rem;
+      height: 45px;
+      color: white;
+      background-color: $primary-100;
+      border: none;
+      outline: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .register-text-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2rem;
+      color: #b0b0b0;
+      font-size: 12px;
+      width: 100%;
+      height: 1px;
+      background-color: #c9c9c9;
+      position: relative;
+
+      p {
+        position: absolute;
+        top: -0.6rem;
+        right: 50%;
+        transform: translateX(50%);
+        background-color: #3a3a3a;
+        padding: 0.1rem 1rem;
+      }
+    }
+
+    .google-apple-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2rem;
+      gap: 1rem;
+
+      button {
+        flex: 1;
+        background: none;
+        border: 1px solid white;
+        border-radius: 4px;
+        color: white;
+        padding: 0.8rem 2rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 16px;
+
+        svg {
+          height: 18px;
+          width: 18px;
+        }
+      }
+
+      .apple-btn {
+        gap: 0.2rem;
+
+        svg {
+          height: 20px;
+          width: 20px;
+        }
+      }
+    }
+  }
+}

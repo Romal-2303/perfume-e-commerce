@@ -1,25 +1,33 @@
-import React from "react";
 import classes from "./OurLastestNews.module.scss";
 import { motion } from "framer-motion";
+import Graphics from "../../../assets/Images/Graphics.webp";
+import Solids from "../../../assets/Images/Solids.webp";
+import StreetWear from "../../../assets/Images/StreetWear.webp";
 
 const newsData = [
   {
     id: 1,
-    date: "AUGUST 17, 09:14 AM",
+    date: "DECEMBER 31",
     heading: "We Bring you the best",
-    details: "Phasellus condimentum nulla a arcu lacinia, a venenatis ex congue. Mauris nec ante magna.",
+    details:
+      "Simple yet stylish, our solid t-shirts are perfect for everyday wear, offering comfort and versatility for any occasion.",
+    img: Graphics,
   },
   {
     id: 2,
-    date: "AUGUST 18, 10:30 AM",
+    date: "DECEMBER 29",
     heading: "Discover the latest trends",
-    details: "Etiam eget lacus at nulla facilisis posuere. Sed vitae quam id eros venenatis euismod.",
+    details:
+      "Express your personality with bold graphic designs that add a fun and creative touch to your wardrobe.",
+    img: Solids,
   },
   {
     id: 3,
-    date: "AUGUST 19, 12:00 PM",
+    date: "DECEMBER 28",
     heading: "Stay updated with us",
-    details: "Suspendisse potenti. Ut ultrices lorem at mauris scelerisque, id tincidunt nisi venenatis.",
+    details:
+      "Stay trendy and urban with our streetwear collection, featuring edgy designs that reflect your unique style.",
+    img: StreetWear,
   },
 ];
 
@@ -34,18 +42,19 @@ const OurLastestNews = () => {
       <div className={classes["our-latest-news-body"]}>
         {newsData.map((news) => (
           <motion.div
-           key={news.id}
-           className={classes["our-latest-news-card"]}
-           initial={{ opacity: 0, y: 20 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true, amount: 0.2 }}
-           transition={{ duration: 0.8, delay: news.id * 0.1 }}          
+            key={news.id}
+            className={classes["our-latest-news-card"]}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: news.id * 0.1 }}
           >
-            <div className={classes["our-latest-news-image"]}></div>
+            <div className={classes["our-latest-news-image"]}>
+              <img src={news.img} alt="tshirt.jpg"></img>
+            </div>
             <div className={classes["date"]}>{news.date}</div>
             <div className={classes["heading"]}>{news.heading}</div>
             <div className={classes["deatals"]}>{news.details}</div>
-            <div className={classes["read-more"]}>READ MORE</div>
           </motion.div>
         ))}
       </div>

@@ -8,14 +8,14 @@ import Ruler from "../../../../assets/icons/Ruler";
 import { motion } from "framer-motion";
 
 interface ModalContentProps {
-  imageArr: any;
+  selectedCardData: any;
   perfumesObj: any;
   selectedBlock: string;
   clickedCardIndex: number;
 }
 
 const ModalContent = ({
-  imageArr = [],
+  selectedCardData,
   perfumesObj = {},
   selectedBlock,
   clickedCardIndex,
@@ -49,12 +49,10 @@ const ModalContent = ({
   return (
     <div className={classes["modal-content-container"]}>
       <div className={classes["group-images-container"]}>
-        <ImageGallery imageArr={imageArr} />
+        <ImageGallery imageArr={selectedCardData.images ?? []} />
       </div>
       <div className={classes["product-info-container"]}>
-        <p className={classes["product-name"]}>
-          {perfumesObj[selectedBlock][clickedCardIndex ?? 0].name}
-        </p>
+        <p className={classes["product-name"]}>{selectedCardData.title}</p>
         <div className={classes["product-rating-container"]}></div>
         <p className={classes["product-availability"]}>
           Availability:{" "}
@@ -63,9 +61,9 @@ const ModalContent = ({
           </span>
         </p>
         <p className={classes["product-discounted-price"]}>
-          ${perfumesObj[selectedBlock][clickedCardIndex ?? 0].discountedPrice}
+          ${selectedCardData.price}
           <span className={classes["product-original-price"]}>
-            ${perfumesObj[selectedBlock][clickedCardIndex ?? 0].originalPrice}
+            ${(selectedCardData.price ?? 65) + 20}
           </span>
         </p>
         <p className={classes["product-color"]}>

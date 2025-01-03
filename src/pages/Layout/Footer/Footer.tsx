@@ -7,6 +7,7 @@ import LinkedIn from "../../../assets/icons/LinkedIn";
 import X from "../../../assets/icons/X";
 import classes from "./Footer.module.scss";
 import { store } from "../../../redux/store";
+import Logo from "../../../assets/icons/Logo";
 
 const Footer = () => {
   return (
@@ -32,7 +33,9 @@ const Footer = () => {
         </div>
 
         <div className={classes["logo-link-column-container"]}>
-          <div className={classes["logo-container"]}>YOUR LOGO</div>
+          <div className={classes["logo-container"]}>
+            <Logo color="white" />
+          </div>
           <div className={classes["link-column-container"]}>
             <div className={classes["resources-container"]}>
               <p className={classes["container-heading"]}>Resources</p>

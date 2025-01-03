@@ -1,0 +1,56 @@
+@import "../../designSystem/library";
+
+.text-container {
+  display: flex;
+  align-items: center;
+  overflow: hidden; // Ensures the animation is clipped
+
+  .animated-text {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden; // Hide overflowing elements
+    height: 65px; // Match the container height
+    width: 260px;
+
+    .text {
+      display: block;
+      position: absolute;
+      text-align: left;
+      animation: slideText 6s linear infinite;
+    }
+
+    .text:nth-child(1) {
+      animation-delay: 0s;
+    }
+    .text:nth-child(2) {
+      animation-delay: 2s;
+    }
+    .text:nth-child(3) {
+      animation-delay: 4s;
+    }
+  }
+}
+
+@keyframes slideText {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  10% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  40% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
