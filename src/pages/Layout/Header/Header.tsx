@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Banner from "../Banner/Banner";
 import classes from "./Header.module.scss";
 import SearchIcon from "../../../assets/icons/SearchIcon";
@@ -8,6 +8,7 @@ import Arrow from "../../../assets/icons/Arrow";
 import Dropdown from "../../../components/Dropdown/Dropdown";
 import { motion, useScroll, useSpring } from "framer-motion";
 import Logo from "../../../assets/icons/Logo";
+import { useNavigate } from "react-router-dom";
 
 const headerArr = [
   {
@@ -38,9 +39,11 @@ const headerArr = [
 ];
 
 const Header = () => {
+  const navigate = useNavigate();
   const [bannerVisibility, setBannerVisibility] = useState(true);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [dropdownVisiblity, setDropdownVisibility] = useState(false);
+  const [userDropdown, setUserDropdown] = useState(false);
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -49,9 +52,26 @@ const Header = () => {
     restDelta: 0.001,
   });
 
+  useEffect(() => {
+    const authTokenFlag = localStorage.getItem("authToken");
+
+    if (authTokenFlag) {
+      setBannerVisibility(false);
+    }
+  });
+
   const linkClickHandler = (receivedIndex: number) => () => {
     setSelectedIndex(receivedIndex);
     setDropdownVisibility((prevState) => !prevState);
+  };
+
+  const profileClickHandler = () => {
+    setUserDropdown((prevState) => !prevState);
+  };
+
+  const logoutClickHandler = () => {
+    localStorage.removeItem("authToken");
+    navigate("/login");
   };
 
   return (
@@ -93,8 +113,17 @@ const Header = () => {
           <div className={classes["cart-container"]}>
             <CartIcon color="#403f3f" />
           </div>
-          <div className={classes["profile-container"]}>
+          <div
+            className={classes["profile-container"]}
+            onClick={profileClickHandler}
+          >
             <UserIcon color="#403f3f" />
+
+            {userDropdown && (
+              <div className={classes["user-popup-container"]}>
+                <p onClick={logoutClickHandler}>Log Out</p>
+              </div>
+            )}
           </div>
         </div>
         <motion.div className={classes["progress-bar"]} style={{ scaleX }} />
