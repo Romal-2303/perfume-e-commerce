@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import classes from "./Banner.module.scss";
 
 interface BannerProps {
@@ -5,8 +6,14 @@ interface BannerProps {
 }
 
 const Banner = ({ closeClickHandler }: BannerProps) => {
+  const navigate = useNavigate();
+
   const crossIconClickHandler = () => {
     closeClickHandler?.(false);
+  };
+
+  const signUpClickHandler = () => {
+    navigate("/login");
   };
 
   return (
@@ -14,7 +21,10 @@ const Banner = ({ closeClickHandler }: BannerProps) => {
       <p className={classes["banner-text"]}>
         Sign up and{" "}
         <span className={classes["discount-text"]}>get 30% off</span> on your
-        first order. <span className={classes["sign-up-text"]}>Sign up</span>
+        first order.{" "}
+        <span className={classes["sign-up-text"]} onClick={signUpClickHandler}>
+          Sign up
+        </span>
       </p>
       <div
         className={classes["close-icon-container"]}
