@@ -10,8 +10,8 @@ type InputFieldProps = {
     name?: string;
     value?: string;
     id?: string;
-    flexDirection?: React.CSSProperties['flexDirection'];
-    gap?: React.CSSProperties['gap'];
+
+    inputStyle?: React.CSSProperties;
 };
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -23,14 +23,14 @@ const InputField: React.FC<InputFieldProps> = ({
     name,
     value,
     id,
-    flexDirection="column",
-    gap="5px"
+
+    inputStyle
 }) => (
   <div
-    style={{ display: "flex", flexDirection, gap }}
+    style={inputStyle}
     className={containerClass}
   >
-    <div style={{fontSize:"14px"}}>{label}</div>
+    <div className={classes['label-text']} >{label}</div>
     <input
       id={id}
       name={name}

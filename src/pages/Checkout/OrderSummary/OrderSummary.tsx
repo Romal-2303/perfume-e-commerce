@@ -11,14 +11,14 @@ type Item = {
 
 type OrderSummaryProps = {
   items: Item[];
-  counts: number[];
+  productCounts: number[];
   handleIncrement: (index: number) => void;
   handleDecrement: (index: number) => void;
 };
 
 const OrderSummary: React.FC<OrderSummaryProps> = ({
   items,
-  counts,
+  productCounts,
   handleIncrement,
   handleDecrement,
 }) => {
@@ -53,7 +53,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
                     -
                   </button>
                   <span className={classes["value"]}>
-                    {String(counts[index] || 0).padStart(2, "0")}
+                    {String(productCounts[index] || 0).padStart(2, "0")}
                   </span>
                   <button
                     className={classes["button"]}

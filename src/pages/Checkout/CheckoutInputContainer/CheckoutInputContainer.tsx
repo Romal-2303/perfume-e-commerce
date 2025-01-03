@@ -2,26 +2,29 @@ import React from 'react';
 import classes from "../Checkout.module.scss";
 import InputField from '../../../components/Input/Input';
 
+const radioInputOptions= ["Online Payment", "Cash on Delivery", "POS on Delivery"]
+
+
+const defaultStyle = {
+  height: "40px",
+  padding: "10px",
+  border: "1px solid #e0e0e0",
+};
+const renderInputField = (label: string, placeholder: string, containerClass: string, style: React.CSSProperties = {}) => (
+  <InputField
+    label={label}
+    style={{ ...defaultStyle, ...style }}
+    containerClass={containerClass}
+    placholder={placeholder}
+    inputStyle={{ display:"flex" ,flexDirection:"column" , gap:"5px"}}
+  />
+);
 const InputContainer = () => {
-  const defaultStyle = {
-    height: "40px",
-    padding: "10px",
-    border: "1px solid #e0e0e0",
-  };
 
-  const renderInputField = (label: string, placeholder: string, containerClass: string, style: React.CSSProperties = {}) => (
-    <InputField
-      label={label}
-      style={{ ...defaultStyle, ...style }}
-      containerClass={containerClass}
-      placholder={placeholder}
-    />
-  );
 
-  const radioInputOptions= ["Online Payment", "Cash on Delivery", "POS on Delivery"]
 
   return (
-    <div className={classes["left-conatiner"]}>
+    <div className={classes["left-container"]}>
       <section className={classes["delivery-information-container"]}>
         <div className={classes["heading"]}>Delivery Information</div>
         <div className={classes["delivery-information-body"]}>
@@ -82,8 +85,7 @@ const InputContainer = () => {
                   name="fav_language"
                   value={paymentMethod.toLowerCase().replace(" ", "-")}
                   style={{ marginRight: "10px" }}
-                  flexDirection="row"
-                  gap="10px"
+                  inputStyle={{ display:"flex",flexDirection:"row" , gap:"10px"}}
                 />
               </div>
             ))}
