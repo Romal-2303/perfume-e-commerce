@@ -5,6 +5,7 @@
   margin-right: 4rem;
   margin-top: 3rem;
   padding: 0rem 4rem;
+  font-family: $font-tertiary;
 
   .heading {
     display: flex;
@@ -35,10 +36,19 @@
     .our-latest-news-card {
       width: 400px;
       padding: 0 15px;
+      cursor: pointer;
+
       .our-latest-news-image {
-        height: 280px;
-        width: 370px;
+        height: 380px;
+        width: 380px;
         background-color: rgba(163, 132, 85, 0.227);
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          object-position: left;
+        }
       }
 
       .date {

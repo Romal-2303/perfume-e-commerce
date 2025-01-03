@@ -1,0 +1,70 @@
+@import "../../../designSystem/library";
+
+.login-container-wrapper {
+  flex: 1;
+  height: 100%;
+  width: 50%;
+  background-color: #3a3a3a;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 5rem 0rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+
+  .log-in-container {
+    padding: 0rem 5rem;
+
+    .log-in-text {
+      color: white;
+      font-size: 44px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .email-container,
+    .password-container {
+      margin-top: 2rem;
+
+      input {
+        padding: 0.8rem 1rem;
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        color: white;
+        background-color: #4d4d4d;
+        width: 100%;
+      }
+    }
+
+    .log-in-btn {
+      margin-top: 2.5rem;
+      height: 45px;
+      color: white;
+      background-color: $primary-100;
+      border: none;
+      outline: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .new-on-platform-text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1rem;
+      color: #b0b0b0;
+      font-size: 14px;
+
+      span {
+        color: $primary-100;
+        margin-left: 0.5rem;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -7,6 +7,7 @@ import UserIcon from "../../../assets/icons/UserIcon";
 import Arrow from "../../../assets/icons/Arrow";
 import Dropdown from "../../../components/Dropdown/Dropdown";
 import { motion, useScroll, useSpring } from "framer-motion";
+import Logo from "../../../assets/icons/Logo";
 
 const headerArr = [
   {
@@ -57,7 +58,9 @@ const Header = () => {
     <div className={classes["header-container"]}>
       {bannerVisibility && <Banner closeClickHandler={setBannerVisibility} />}
       <div className={classes["header-strip-container"]}>
-        <div className={classes["logo-container"]}>Your Logo</div>
+        <div className={classes["logo-container"]}>
+          <Logo height={60} width={200} />
+        </div>
         <div className={classes["nav-link-container"]}>
           {headerArr.map((el, index) => (
             <p

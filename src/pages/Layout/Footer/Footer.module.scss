@@ -77,7 +77,13 @@
       display: flex;
 
       .logo-container {
+        display: flex;
+        justify-content: start;
         flex: 1;
+
+        svg {
+          margin-left: -1rem;
+        }
       }
 
       .link-column-container {
