@@ -2,10 +2,18 @@ import { useState } from "react";
 import classes from "./DealOfTheDay.module.scss";
 import { DealtOfTheDayData } from "../../../utilites/DealOfTheDayData";
 import LikeSearchShop from "./LikeSearchShop";
+import Modal from "../../../components/Modal/Modal";
+import ModalContent from "../CategorySection/ModalContent/ModalContent";
+import { perfumesObj } from "../../../utilites/dummyData";
 
 const DealOfTheDay = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [modalVisibility, setModalVisibility] = useState(false);
+  const [selectedCardData, setSelectedCardData] = useState<any>({});
+  const [selectedBlock, setSelectedBlock] = useState<string>("Bestseller");
+  const [clickedCardIndex, setClickedCardIndex] = useState<number>(0);
+
   const itemsPerPage = 4;
 
   const totalDots = DealtOfTheDayData.length - itemsPerPage + 1;
@@ -102,6 +110,18 @@ const DealOfTheDay = () => {
           ></span>
         ))}
       </div>
+
+      <Modal
+        modalVisibility={modalVisibility}
+        setModalVisibility={setModalVisibility}
+      >
+        <ModalContent
+          selectedCardData={selectedCardData}
+          perfumesObj={perfumesObj}
+          selectedBlock={selectedBlock}
+          clickedCardIndex={clickedCardIndex}
+        />
+      </Modal>
     </div>
   );
 };

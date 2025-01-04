@@ -1,0 +1,49 @@
+@import "../../../../designSystem/library";
+
+.delivery-info-container {
+  font-family: $font-tertiary;
+  margin-top: 1rem;
+
+  .input-row {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+
+    .input-container,
+    .two-input-container {
+      flex: 1;
+
+      p {
+        font-size: 12px;
+      }
+
+      input {
+        height: 35px;
+        width: 100%;
+        border: 1px solid rgb(212, 212, 212);
+        padding-left: 8px;
+        margin-top: 0.5rem;
+      }
+
+      input:focus {
+        outline: $primary-200;
+        border: 1px solid $primary-200;
+      }
+
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      input[type="number"] {
+        -moz-appearance: textfield; /* For Firefox */
+      }
+    }
+
+    .two-input-container {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+}

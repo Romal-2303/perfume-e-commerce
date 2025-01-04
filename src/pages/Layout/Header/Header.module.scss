@@ -20,6 +20,7 @@
       flex: 1;
       display: flex;
       align-items: center;
+      cursor: pointer;
     }
 
     .nav-link-container {
@@ -96,12 +97,33 @@
       }
 
       .cart-container {
+        position: relative;
+        z-index: 2;
         margin-left: 0.8rem;
         cursor: pointer;
+
         svg {
+          position: relative;
+          z-index: 2;
           path {
             transition: fill linear 0.1s;
           }
+        }
+
+        .item-number-circle {
+          position: absolute;
+          top: -0.2rem;
+          right: -0.6rem;
+          height: 16px;
+          width: 16px;
+          border-radius: 50%;
+          background-color: red;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 10px;
+          color: white;
+          z-index: 1;
         }
       }
 
@@ -135,6 +157,7 @@
           background-color: white;
           font-size: 14px;
           font-weight: 300;
+          z-index: 11112;
 
           &:hover {
             color: $primary-100;

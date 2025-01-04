@@ -1,0 +1,20 @@
+.payment-method-container {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+
+  .input-container {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    input {
+      height: 12px;
+      width: 12px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+}

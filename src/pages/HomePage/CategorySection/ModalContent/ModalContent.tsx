@@ -6,6 +6,9 @@ import { useState } from "react";
 import HeartIcon from "../../../../assets/icons/HeartIcon";
 import Ruler from "../../../../assets/icons/Ruler";
 import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "../../../../redux/slices/CardData/CartDataSlice";
+import { useSelector } from "react-redux";
 
 interface ModalContentProps {
   selectedCardData: any;
@@ -20,6 +23,8 @@ const ModalContent = ({
   selectedBlock,
   clickedCardIndex,
 }: ModalContentProps) => {
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state: any) => state.cartData);
   const [selectedColorIndex, setSelectedColorIndex] = useState<number>(0);
   const [selectedSizeIndex, setSelectedSizeIndex] = useState<number>(0);
   const [counter, setCounter] = useState(1);
@@ -44,6 +49,15 @@ const ModalContent = ({
         }
       });
     }
+  };
+
+  const addToCartClickHandler = () => {
+    console.log(selectedCardData);
+
+    let tempCardData = { ...selectedCardData };
+    tempCardData["amount"] = counter;
+
+    dispatch(addItemToCart(tempCardData));
   };
 
   return (
@@ -132,6 +146,7 @@ const ModalContent = ({
             <motion.button
               whileTap={{ scale: 0.9, rotate: 1 }}
               className={classes["add-to-cart-btn"]}
+              onClick={addToCartClickHandler}
             >
               ADD TO CART
             </motion.button>

@@ -1,0 +1,23 @@
+@import "../../../designSystem/library";
+
+.checkout-form-container {
+  flex: 1;
+
+  .delivery-information-container,
+  .schedule-delivery-container,
+  .payment-method-container {
+    .section-heading {
+      color: $primary-200;
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }
+
+  .schedule-delivery-container {
+    margin-top: 2rem;
+  }
+
+  .payment-method-container {
+    margin-top: 2rem;
+  }
+}

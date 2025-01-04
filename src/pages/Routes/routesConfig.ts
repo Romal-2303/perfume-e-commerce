@@ -12,10 +12,10 @@ export const routes: typeRoutesConfig[] = [
     path: "/",
     component: HomePage,
   },
-  {
-    path: "/checkout",
-    component: Checkout,
-  },
+  // {
+  //   path: "/checkout",
+  //   component: Checkout,
+  // },
   {
     path: "/login",
     component: LoginSignup,
@@ -23,5 +23,12 @@ export const routes: typeRoutesConfig[] = [
   {
     path: "/signup",
     component: LoginSignup,
+  },
+];
+
+export const protectedRoutes: typeRoutesConfig[] = [
+  {
+    path: "/checkout",
+    component: Checkout,
   },
 ];

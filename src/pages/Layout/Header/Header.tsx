@@ -9,6 +9,7 @@ import Dropdown from "../../../components/Dropdown/Dropdown";
 import { motion, useScroll, useSpring } from "framer-motion";
 import Logo from "../../../assets/icons/Logo";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const headerArr = [
   {
@@ -40,10 +41,13 @@ const headerArr = [
 
 const Header = () => {
   const navigate = useNavigate();
+  const cartItems = useSelector((state: any) => state.cartData);
+
   const [bannerVisibility, setBannerVisibility] = useState(true);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [dropdownVisiblity, setDropdownVisibility] = useState(false);
   const [userDropdown, setUserDropdown] = useState(false);
+  const [totalAmount, setTotalAmount] = useState<number>(0);
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -58,7 +62,15 @@ const Header = () => {
     if (authTokenFlag) {
       setBannerVisibility(false);
     }
-  });
+  }, []);
+
+  useEffect(() => {
+    setTotalAmount(
+      cartItems.reduce((acc: number, currValue: any) => {
+        return acc + currValue.amount;
+      }, 0)
+    );
+  }, [cartItems]);
 
   const linkClickHandler = (receivedIndex: number) => () => {
     setSelectedIndex(receivedIndex);
@@ -74,11 +86,23 @@ const Header = () => {
     navigate("/login");
   };
 
+  const loginClickHandler = () => {
+    navigate("/login");
+  };
+
+  const logoClickHandler = () => {
+    navigate("/");
+  };
+
+  const cartIconClickHandler = () => {
+    navigate("/checkout");
+  };
+
   return (
     <div className={classes["header-container"]}>
       {bannerVisibility && <Banner closeClickHandler={setBannerVisibility} />}
       <div className={classes["header-strip-container"]}>
-        <div className={classes["logo-container"]}>
+        <div className={classes["logo-container"]} onClick={logoClickHandler}>
           <Logo height={60} width={200} />
         </div>
         <div className={classes["nav-link-container"]}>
@@ -110,8 +134,14 @@ const Header = () => {
             </div>
             <input placeholder="Search" />
           </div>
-          <div className={classes["cart-container"]}>
+          <div
+            className={classes["cart-container"]}
+            onClick={cartIconClickHandler}
+          >
             <CartIcon color="#403f3f" />
+            <div className={classes["item-number-circle"]}>
+              <p>{totalAmount}</p>
+            </div>
           </div>
           <div
             className={classes["profile-container"]}
@@ -121,7 +151,11 @@ const Header = () => {
 
             {userDropdown && (
               <div className={classes["user-popup-container"]}>
-                <p onClick={logoutClickHandler}>Log Out</p>
+                {localStorage.getItem("authToken") ? (
+                  <p onClick={logoutClickHandler}>Log Out</p>
+                ) : (
+                  <p onClick={loginClickHandler}>Log In</p>
+                )}
               </div>
             )}
           </div>
