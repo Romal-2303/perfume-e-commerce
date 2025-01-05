@@ -1,0 +1,10 @@
+<svg width="50px" height="50px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <path id="circlePath" d="M 20, 50
+      a 30,30 0 1,1 60,0
+      30,30 0 1,1 -60,0" fill="none" stroke="none" />
+    <text>
+        <textPath href="#circlePath" startOffset="25%" dominant-baseline="middle" dy="-10" fill="black">
+            Your text here!
+        </textPath>
+    </text>
+</svg>

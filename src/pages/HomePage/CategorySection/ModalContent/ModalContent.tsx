@@ -52,8 +52,6 @@ const ModalContent = ({
   };
 
   const addToCartClickHandler = () => {
-    console.log(selectedCardData);
-
     let tempCardData = { ...selectedCardData };
     tempCardData["amount"] = counter;
 
