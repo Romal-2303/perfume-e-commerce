@@ -1,0 +1,23 @@
+@import "../../designSystem/library";
+
+.homepage-container {
+  .support-btn-container {
+    position: sticky;
+    left: 95vw;
+    bottom: 2rem;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background-color: $primary-100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    .text-container {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+}

@@ -33,9 +33,16 @@ let promotionArr = [
   },
 ];
 
-const PromotionStrip = () => {
+interface PromotionStripType {
+  promotionStripRef: any;
+}
+
+const PromotionStrip = ({ promotionStripRef }: PromotionStripType) => {
   return (
-    <div className={classes["promotion-strip-container"]}>
+    <div
+      className={classes["promotion-strip-container"]}
+      ref={promotionStripRef}
+    >
       {promotionArr.map((block) => (
         <>
           <div className={classes["promotion-block"]}>

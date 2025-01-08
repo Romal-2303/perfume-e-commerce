@@ -1,10 +1,9 @@
 import { useState } from "react";
 import classes from "./DealOfTheDay.module.scss";
 import { DealtOfTheDayData } from "../../../utilites/DealOfTheDayData";
-import LikeSearchShop from "./LikeSearchShop";
 import Modal from "../../../components/Modal/Modal";
 import ModalContent from "../CategorySection/ModalContent/ModalContent";
-import { perfumesObj } from "../../../utilites/dummyData";
+import { perfumesObj, dealOfTheDayObj } from "../../../utilites/dummyData";
 
 const DealOfTheDay = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -22,6 +21,11 @@ const DealOfTheDay = () => {
     if (index >= 0 && index < totalDots) {
       setCurrentIndex(index);
     }
+  };
+
+  const buyClickHandler = (receivedIndex: number) => () => {
+    setModalVisibility(true);
+    setSelectedCardData(dealOfTheDayObj[receivedIndex]);
   };
 
   return (
@@ -56,6 +60,7 @@ const DealOfTheDay = () => {
                         ? `${classes["quick-buy-strip"]} ${classes["quick-buy-strip-active"]}`
                         : classes["quick-buy-strip"]
                     }
+                    onClick={buyClickHandler(index)}
                   >
                     Buy
                   </div>
