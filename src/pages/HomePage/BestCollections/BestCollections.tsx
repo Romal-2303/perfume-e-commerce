@@ -28,7 +28,7 @@ const BestCollections = () => {
           transition={{ duration: 0.7, delay: 0.3 }}
           className={classes["image-hoodie"]}
         >
-          <img src={HoodieImage} alt="" width="320px" />
+          <img src={HoodieImage} alt="" width="310px" />
 
           <div className={classes["off-conatiner"]}>
             <span className={classes["discount-number"]}>60%</span>
