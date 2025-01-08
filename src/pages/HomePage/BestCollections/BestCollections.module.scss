@@ -1,161 +1,89 @@
 @import "../../../designSystem/library";
 
-.best-collection-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 2rem;
-  margin-top: 3rem;
+.best-collection-parent {
+  width: 90%;
+  margin: auto;
+  font-family: $font-tertiary;
 
-  .collections-container {
+  .hoodie-container {
+    height: 20rem;
+    width: 100%;
+    background: linear-gradient(120deg, $primary-100 63%, black 37%);
+
+    border-radius: 15px;
+    padding: 20px;
+    padding-left: 30px;
     display: flex;
-    gap: 2rem;
     flex-direction: row;
 
-    .collection {
-      width: 600px;
-      height: 300px;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      padding-left: 2rem;
-      padding-right: 18rem;
-      padding-top: 3rem;
-      padding-bottom: 1rem;
+    .hoodie-content {
       display: flex;
       flex-direction: column;
+      padding-top: 2rem;
+      width: 40rem;
+      gap: 3rem;
 
-      .collection-data {
-        font-size: 14px;
-        color: $primary-100;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
+      .hoodie-text {
+        color: white;
+        font-size: 38px;
+        font-weight: 300;
 
-        .title {
-          font-size: 26px;
-          font-weight: 600;
-          color: #000;
-          margin-top: 0.5rem;
-          margin-bottom: 1rem;
-        }
-
-        .description {
-          font-weight: 500;
-          font-size: 16px;
-          color: #666;
-          margin-bottom: 1.3rem;
-          padding-right: 3rem;
-        }
-
-        .shop-now {
-          font-size: 16px;
-          color: #000;
+        span {
           font-weight: 600;
         }
+      }
+
+      .explore-more {
+        padding: 10px;
+        width: 130px;
+        background-color: #ffffff;
+        font-size: 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     }
 
-    .earned-it-conatainer {
-      width: 600px;
-      height: 300px;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      padding-left: 2rem;
-      padding-right: 18rem;
-      padding-top: 3rem;
-      padding-bottom: 1rem;
-      display: flex;
-      flex-direction: column;
+    .image-hoodie {
+      margin-left: 12rem;
+      position: relative;
 
-      .earned-it-data {
-        .title {
-          font-size: 26px;
+      img {
+        margin-top: -30px;
+      }
+
+      .off-conatiner {
+        background: rgba(0, 0, 0, 0.2);
+        position: absolute;
+        border-radius: 50%;
+        top: 60px;
+        left: -60px;
+        border: 1.3px solid white;
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 110px;
+        width: 110px;
+        padding: 60px;
+        cursor: pointer;
+
+        .discount-number {
+          font-size: 24px;
           font-weight: 600;
-          color: #000;
-          margin-top: 0.5rem;
         }
 
-        .subtitle {
-          font-size: 26px;
-          font-weight: 600;
-          color: #000;
-          margin-top: 0.1rem;
-          margin-bottom: 1rem;
-        }
-
-        .description {
+        .off-arrow-container {
+          display: flex;
+          align-items: center;
+          gap: 0.3rem;
           font-weight: 500;
-          font-size: 16px;
-          color: #666;
-          margin-bottom: 0.2rem;
-
-          &.last {
-            margin-bottom: 1.3rem;
-          }
+          margin-top: 0.4rem;
+          font-size: 20px;
         }
-
-        .shop-now {
-          font-size: 16px;
-          color: #000;
-          font-weight: 600;
-        }
-      }
-    }
-  }
-
-  .collection-arrived {
-    width: 1250px;
-    height: 300px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 3.3rem;
-
-    .collection-arrived-data {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-
-      .title {
-        font-size: 34px;
-        font-weight: 600;
-        color: #000;
-        margin-top: 0.1rem;
-        margin-bottom: 0.4rem;
-      }
-
-      .description {
-        font-weight: 500;
-        font-size: 16px;
-        color: #666;
-
-        &.last {
-          margin-bottom: 1.3rem;
-        }
-      }
-
-      .price {
-        font-weight: 500;
-        font-size: 18px;
-        color: #666;
-        margin-bottom: 2rem;
-
-        .highlight {
-          color: $primary-100;
-          font-size: 30px;
-          font-weight: 600;
-        }
-      }
-
-      .shop-now {
-        font-size: 16px;
-        color: #000;
-        font-weight: 600;
       }
     }
   }
