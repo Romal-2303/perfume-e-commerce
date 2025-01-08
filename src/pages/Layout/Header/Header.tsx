@@ -42,7 +42,7 @@ const headerArr = [
 const Header = () => {
   const navigate = useNavigate();
   const cartItems = useSelector((state: any) => state.cartData);
-
+  const user = useSelector((state: any) => state.auth.user);
   const [bannerVisibility, setBannerVisibility] = useState(true);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [dropdownVisiblity, setDropdownVisibility] = useState(false);
@@ -147,7 +147,15 @@ const Header = () => {
             className={classes["profile-container"]}
             onClick={profileClickHandler}
           >
-            <UserIcon color="#403f3f" />
+            {user && user.image ? (
+              <img
+                src={user.image}
+                alt="User Profile"
+                className={classes["user-profile-image"]}
+              />
+            ) : (
+              <UserIcon color="#403f3f" />
+            )}
 
             {userDropdown && (
               <div className={classes["user-popup-container"]}>

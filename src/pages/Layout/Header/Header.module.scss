@@ -65,7 +65,7 @@
 
     .header-tools-container {
       display: flex;
-      justify-content: center;
+      gap:10px;
       align-items: center;
       height: 100%;
       flex: 1;
@@ -99,7 +99,6 @@
       .cart-container {
         position: relative;
         z-index: 1;
-        margin-left: 0.8rem;
         cursor: pointer;
 
         svg {
@@ -144,6 +143,12 @@
           path {
             transition: fill linear 0.1s;
           }
+        }
+        .user-profile-image{
+          object-fit: cover;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
         }
 
         .user-popup-container {
