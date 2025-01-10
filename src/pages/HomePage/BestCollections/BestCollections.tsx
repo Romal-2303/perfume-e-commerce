@@ -1,62 +1,43 @@
 import classes from "./BestCollections.module.scss";
+import { motion } from "framer-motion";
+import HoodieImage from "../../../assets/Images/Hoodie.png";
+import ArrowWithTail from "../../../assets/icons/ArrowWithTail";
 
 const BestCollections = () => {
   return (
-    <div className={classes["best-collection-container"]}>
-      <div className={classes["collections-container"]}>
-        <div
-          className={classes["collection"]}
-          style={{
-            backgroundImage: `url('https://dreamingtheme.kiendaotac.com/html/stelina/assets/images/banner-home-2.jpg')`,
-          }}
+    <div className={classes["best-collection-parent"]}>
+      <div className={classes["hoodie-container"]}>
+        <motion.div
+          className={classes["hoodie-content"]}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
         >
-          <div className={classes["collection-data"]}>
-            <div className={classes["top-pick"]}>TOP STAFF PICK</div>
-            <div className={classes["title"]}>Best Collection</div>
-            <div className={classes["description"]}>
-              Proin interdum magna primis id consequat
-            </div>
-            <div className={classes["shop-now"]}>SHOP NOW</div>
+          <div className={classes["hoodie-text"]}>
+            Looking for a <span>hoodie</span> with an amazing print? Grab yours
+            now at an unbeatable <span>discount</span> don’t miss out!
           </div>
-        </div>
+          <div className={classes["explore-more"]}> Explore More </div>
+        </motion.div>
 
-        <div
-          className={classes["earned-it-conatainer"]}
-          style={{
-            backgroundImage: `url('https://dreamingtheme.kiendaotac.com/html/stelina/assets/images/banner-home-3.jpg')`,
-          }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className={classes["image-hoodie"]}
         >
-          <div className={classes["earned-it-data"]}>
-            <div className={classes["title"]}>Maybe You’ve</div>
-            <div className={classes["subtitle"]}>Earned it</div>
-            <div className={classes["description"]}>Use code: STELINA Get</div>
-            <div className={`${classes["description"]} ${classes["last"]}`}>
-              25% Off for all items!
-            </div>
-            <div className={classes["shop-now"]}>SHOP NOW</div>
-          </div>
-        </div>
-      </div>
+          <img src={HoodieImage} alt="" width="310px" />
 
-      <div
-        className={classes["collection-arrived"]}
-        style={{
-          backgroundImage: `url('https://dreamingtheme.kiendaotac.com/html/stelina/assets/images/banner-home-15.jpg')`,
-        }}
-      >
-        <div className={classes["collection-arrived-data"]}>
-          <div className={classes["title"]}>Collection Arrived</div>
-          <div className={classes["description"]}>
-            You have no items & Are you
+          <div className={classes["off-conatiner"]}>
+            <span className={classes["discount-number"]}>60%</span>
+            <p className={classes["off-arrow-container"]}>
+              <span>OFF</span>
+              <ArrowWithTail />
+            </p>
           </div>
-          <div className={`${classes["description"]} ${classes["last"]}`}>
-            ready to use? Come & shop with us!
-          </div>
-          <div className={classes["price"]}>
-            Price from: <span className={classes["highlight"]}>$45.00</span>
-          </div>
-          <div className={classes["shop-now"]}>SHOP NOW</div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
