@@ -15,10 +15,12 @@
     border-radius: 10px;
     padding: 3rem 0rem;
   }
+
   @media screen and (min-width: 400px) and (max-width: 650px) {
     border-radius: 10px;
     padding: 2rem 0rem;
   }
+
   @media screen and (min-width: 300px) and (max-width: 400px) {
     border-radius: 10px;
     padding: 2rem 0rem;
@@ -73,6 +75,7 @@
       @media screen and (min-width: 300px) and (max-width: 400px) {
         font-size: 12px;
       }
+
       @media screen and (min-width: 400px) and (max-width: 650px) {
         font-size: 12px;
       }
@@ -92,6 +95,7 @@
       @media screen and (min-width: 300px) and (max-width: 400px) {
         margin-top: 2.5rem;
       }
+
       @media screen and (min-width: 400px) and (max-width: 650px) {
         margin-top: 2.5rem;
       }
@@ -109,7 +113,7 @@
 
     .email-container,
     .password-container {
-      margin-top: 2rem;
+      margin-top: 1.3rem;
 
       input {
         padding: 0.8rem 1rem;
@@ -129,14 +133,18 @@
       margin-top: 1rem;
 
       input[type="checkbox"] {
-        appearance: none; /* Remove default checkbox styling */
+        appearance: none;
+        /* Remove default checkbox styling */
         -webkit-appearance: none;
         -moz-appearance: none;
-        width: 20px; /* Set your desired size */
+        width: 20px;
+        /* Set your desired size */
         height: 20px;
         background-color: #ffffff;
-        border: 1px solid #333; /* Optional: Add a border */
-        border-radius: 4px; /* Optional: Add rounded corners */
+        border: 1px solid #333;
+        /* Optional: Add a border */
+        border-radius: 4px;
+        /* Optional: Add rounded corners */
 
         /* Center the checkmark */
         display: inline-flex;
@@ -145,13 +153,16 @@
       }
 
       input[type="checkbox"]:checked {
-        background-color: #aa8f66; /* Keep background for checked state */
+        background-color: #aa8f66;
+        /* Keep background for checked state */
       }
 
       input[type="checkbox"]:checked::after {
-        content: "✔"; /* Unicode or custom content for the checkmark */
+        content: "✔";
+        /* Unicode or custom content for the checkmark */
         font-size: 14px;
-        color: white; /* Checkmark color */
+        color: white;
+        /* Checkmark color */
       }
 
       p {
@@ -236,5 +247,12 @@
         }
       }
     }
+  }
+
+  .error {
+    margin-top: 5px;
+    color: $primary-100;
+    font-size: 12px;
+
   }
 }
