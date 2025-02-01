@@ -27,7 +27,7 @@ const SignUp = ({ setLoginContainerVisibility }: SignUpProps) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(createUserObj),
+      body: JSON.stringify(tempObj),
     });
   };
 
