@@ -10,20 +10,72 @@
   flex-direction: column;
   justify-content: start;
   padding: 5rem 0rem;
-  width: 50%;
+
+  @media screen and (min-width: 650px) and (max-width: 950px) {
+    border-radius: 10px;
+    padding: 3rem 0rem;
+  }
+  @media screen and (min-width: 400px) and (max-width: 650px) {
+    border-radius: 10px;
+    padding: 2rem 0rem;
+  }
+  @media screen and (min-width: 300px) and (max-width: 400px) {
+    border-radius: 10px;
+    padding: 2rem 0rem;
+  }
 
   .create-account-container {
     padding: 0rem 5rem;
 
+    @media screen and (min-width: 300px) and (max-width: 400px) {
+      padding: 0rem 2rem;
+    }
+
+    @media screen and (min-width: 400px) and (max-width: 650px) {
+      padding: 0rem 2rem;
+    }
+
+    @media screen and (min-width: 650px) and (max-width: 900px) {
+      padding: 0rem 2rem;
+    }
+
+    @media screen and (min-width: 900px) and (max-width: 1250px) {
+      padding: 0rem 2rem;
+    }
+
     .create-account-text {
       color: white;
       font-size: 44px;
+      white-space: nowrap;
+
+      @media screen and (min-width: 300px) and (max-width: 400px) {
+        font-size: 26px;
+      }
+
+      @media screen and (min-width: 400px) and (max-width: 650px) {
+        font-size: 26px;
+      }
+
+      @media screen and (min-width: 650px) and (max-width: 900px) {
+        font-size: 34px;
+      }
+
+      @media screen and (min-width: 900px) and (max-width: 1250px) {
+        font-size: 32px;
+      }
     }
 
     .already-text {
       font-size: 14px;
       color: #b0b0b0;
       margin-top: 0.5rem;
+
+      @media screen and (min-width: 300px) and (max-width: 400px) {
+        font-size: 12px;
+      }
+      @media screen and (min-width: 400px) and (max-width: 650px) {
+        font-size: 12px;
+      }
 
       span {
         color: $primary-100;
@@ -37,6 +89,13 @@
       gap: 1.5rem;
       margin-top: 3.5rem;
 
+      @media screen and (min-width: 300px) and (max-width: 400px) {
+        margin-top: 2.5rem;
+      }
+      @media screen and (min-width: 400px) and (max-width: 650px) {
+        margin-top: 2.5rem;
+      }
+
       input {
         padding: 0.8rem 1rem;
         border-radius: 4px;
@@ -44,6 +103,7 @@
         outline: none;
         color: white;
         background-color: #4d4d4d;
+        width: 50%;
       }
     }
 
