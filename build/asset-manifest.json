@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6158e459.css",
+    "main.js": "/static/js/main.23612fd4.js",
+    "static/media/tshirts.jpg": "/static/media/tshirts.9e45a21a1f3cc25e8b28.jpg",
+    "static/media/flowers.jpg": "/static/media/flowers.969d8d5512a224629ad9.jpg",
+    "static/media/Hoodie.png": "/static/media/Hoodie.8a6527d8abe9abaea9dc.png",
+    "static/media/building.jpg": "/static/media/building.c560512e5751a3945c83.jpg",
+    "static/media/sea.jpg": "/static/media/sea.80fe3c39365e254e1127.jpg",
+    "static/media/mountain.jpg": "/static/media/mountain.f4bcf9c157932656f78a.jpg",
+    "static/media/christmas.jpg": "/static/media/christmas.e87fe4d23b4e1da9b326.jpg",
+    "static/media/hagiaSophia.jpg": "/static/media/hagiaSophia.273aabce8631a492a63e.jpg",
+    "static/media/Gym1.jpg": "/static/media/Gym1.d1b0f74ed7d163416ac0.jpg",
+    "static/media/WomanShopping.jpg": "/static/media/WomanShopping.81a192617cb69b6b6630.jpg",
+    "static/media/whiteFigure.jpg": "/static/media/whiteFigure.160dd49c799685ab6079.jpg",
+    "static/media/Graphics.webp": "/static/media/Graphics.c2119a9e7d97431c9bce.webp",
+    "static/media/Solids.webp": "/static/media/Solids.e2a971c05f3f783aae7a.webp",
+    "static/media/StreetWear.webp": "/static/media/StreetWear.ac4384d2ffbfb93ba3a2.webp",
+    "index.html": "/index.html",
+    "main.6158e459.css.map": "/static/css/main.6158e459.css.map",
+    "main.23612fd4.js.map": "/static/js/main.23612fd4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6158e459.css",
+    "static/js/main.23612fd4.js"
+  ]
+}
