@@ -12,8 +12,38 @@
   flex-direction: column;
   justify-content: start;
 
+  @media screen and (min-width: 650px) and (max-width: 950px) {
+    border-radius: 10px;
+    padding: 3rem 0rem;
+  }
+  @media screen and (min-width: 400px) and (max-width: 650px) {
+    border-radius: 10px;
+    padding: 2rem 0rem;
+  }
+  @media screen and (min-width: 300px) and (max-width: 400px) {
+    border-radius: 10px;
+    padding: 2rem 0rem 8rem 0rem;
+    height: fit-content;
+  }
+
   .log-in-container {
     padding: 0rem 5rem;
+
+    @media screen and (min-width: 300px) and (max-width: 400px) {
+      padding: 0rem 2rem;
+    }
+
+    @media screen and (min-width: 400px) and (max-width: 650px) {
+      padding: 0rem 2rem;
+    }
+
+    @media screen and (min-width: 650px) and (max-width: 900px) {
+      padding: 0rem 2rem;
+    }
+
+    @media screen and (min-width: 900px) and (max-width: 1250px) {
+      padding: 0rem 2rem;
+    }
 
     .log-in-text {
       color: white;
